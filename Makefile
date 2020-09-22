@@ -44,7 +44,17 @@ version:
 
 build: version
 	@ echo '[] Building base image...'
-	time docker build -f $(VERSION_OS)/Dockerfile-$(VERSION) -t $(NAME_PROJECT):latest .
+	docker buildx create --use
+
+	# time docker buildx build \
+	# --platform=linux/arm/v7,linux/arm64/v8,linux/amd64 \
+	# -f $(VERSION_OS)/Dockerfile-$(VERSION) \
+	# -t $(NAME_PROJECT):latest .
+
+	time docker build \
+	-f $(VERSION_OS)/Dockerfile-$(VERSION) \
+	-t $(NAME_PROJECT):latest .
+
 	docker tag $(NAME_PROJECT):latest $(NAME_PROJECT):$(VERSION)
 	docker tag $(NAME_PROJECT):latest $(NAME_IMAGE_REPO):latest
 	docker tag $(NAME_PROJECT):latest $(NAME_IMAGE_REPO):$(VERSION)

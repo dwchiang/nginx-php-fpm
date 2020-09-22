@@ -1,4 +1,4 @@
-FROM nginx-php-fpm:7.4.10-fpm-1.18.0-nginx-buster
+FROM dwchiang/nginx-php-fpm:7.4.10-fpm-1.18.0-nginx-buster
 
 LABEL maintainer="Ernest Chiang <me@ernestchiang.com>"
 
@@ -82,6 +82,5 @@ RUN set -x && \
     find /var/www/html/storage -type d -exec chmod 770 {} \;
 
 # TODO: cron
-# TODO: turn off laravel error
 
 CMD ["/docker-entrypoint.sh"]

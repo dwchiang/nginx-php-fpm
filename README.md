@@ -43,11 +43,13 @@ These two parts are separated Dockerfiles. This project repository will maintain
 
 The base image is basically merged from official [php-fpm](https://hub.docker.com/_/php) and [nginx](https://hub.docker.com/_/nginx) Dockerfiles. Plus [supervisord](http://supervisord.org/) to manage the processes of nginx and php-fpm. Plus configuration files for nginx.
 
-Here list some useful pathes you may want to modify at Part 3:
+Here list some useful pathes you may want to modify at Part 2:
 
-- `/usr/share/nginx/html`: Place your static files here.
-- `/var/www/html`: Place your PHP application files here.
-- `/etc/nginx/conf.d/*.conf`: If you have some other extra nginx conf files, place here.
+- `/usr/share/nginx/html`: Place your **static** files here.
+- `/var/www/html`: Place your **PHP application** files here.
+- `/etc/nginx/conf.d/*.conf`: If you have some other extra **nginx** conf files, place here.
+- `/etc/supervisor/conf.d/*.conf`: If you have some other extra **supervisor** conf files, place here.
+- `/docker-entrypoint.d/*.sh`: If you have some other extra shell scripts, place here. Filename format `{number}-{customName}.sh`. Remember to` `chmod +x` on these script files.
 
 You can find the base image Dockerfiles in these folders:
 
