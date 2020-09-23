@@ -73,6 +73,8 @@ You can find these Dockerfiles in the root folder of this repository:
 
 This project will not upload the images of Part 2 on Docker Hub. Please kindly use Part 2 as your Dockerfile reference to build your own and enjoy the fun :)
 
+Please find the `docker build` detailed parameters at the `buildlaravel` section in the `Makefile`.
+
 ---
 
 # License

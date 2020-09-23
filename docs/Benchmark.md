@@ -31,12 +31,16 @@ Unit: **Requests/sec**
 
 - Alpine 3.12
     - PHP 7.4.10: **112.09**
+    - PHP 7.3.22: **112.00**
 - Buster
     - PHP 7.4.10: **120.75**
+    - PHP 7.3.22: **118.18**
 
-## Laravel 7.25.0 Names (with a database query for 50 records)
+## Laravel 7.25.0 Names (with a database query for 50 user records)
 
 - Alpine 3.12
     - PHP 7.4.10: **69.44**
+    - PHP 7.3.22: **70.74**
 - Buster
     - PHP 7.4.10: **74.66**
+    - PHP 7.3.22: **74.05**

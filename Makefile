@@ -6,7 +6,7 @@ VERSION_PHP_FPM_MAJOR  := $(shell cut -d '.' -f 1 <<< $(VERSION_PHP_FPM))
 VERSION_NGINX          := $(VERSION_NGINX)
 VERSION_OS             := $(VERSION_OS)
 VERSION                := $(VERSION_PHP_FPM)-fpm-$(VERSION_NGINX)-nginx-$(VERSION_OS)
-VERSION_PHP_FPM_MINOR  := $(VERSION_PHP_FPM_MINOR)-fpm-$(VERSION_NGINX)-nginx-$(VERSION_OS)
+VERSION_MINOR          := $(VERSION_PHP_FPM_MINOR)-fpm-$(VERSION_NGINX)-nginx-$(VERSION_OS)
 
 GIT_COMMIT_HASH  := $(shell git rev-parse --short HEAD)
 AWS_REGION       := $(AWS_REGION)
@@ -37,17 +37,18 @@ help:
 
 version:
 	@ echo '{'
-	@ echo '  "GIT_COMMIT_HASH": "$(GIT_COMMIT_HASH)",'
-	@ echo '  "VERSION_PHP_FPM": "$(VERSION_PHP_FPM)"'
+	@ echo '  "GIT_COMMIT_HASH":       "$(GIT_COMMIT_HASH)",'
+	@ echo '  "VERSION_PHP_FPM":       "$(VERSION_PHP_FPM)"'
 	@ echo '  "VERSION_PHP_FPM_MINOR": "$(VERSION_PHP_FPM_MINOR)"'
 	@ echo '  "VERSION_PHP_FPM_MAJOR": "$(VERSION_PHP_FPM_MAJOR)"'
-	@ echo '  "VERSION_NGINX": "$(VERSION_NGINX)"'
-	@ echo '  "VERSION_OS": "$(VERSION_OS)"'
-	@ echo '  "VERSION": "$(VERSION)"'
-	@ echo '  "NAME_IMAGE_REPO": "$(NAME_IMAGE_REPO)"'
-	@ echo '  "TAG_REPO_URI_AWS": "$(TAG_REPO_URI_AWS)"'
-	@ echo '  "VERSION_LARAVEL": "$(VERSION_LARAVEL)"'
-	@ echo '  "NAME_PROJECT_LARAVEL": "$(NAME_PROJECT_LARAVEL)"'
+	@ echo '  "VERSION_NGINX":         "$(VERSION_NGINX)"'
+	@ echo '  "VERSION_OS":            "$(VERSION_OS)"'
+	@ echo '  "VERSION":               "$(VERSION)"'
+	@ echo '  "VERSION_MINOR":         "$(VERSION_MINOR)"'
+	@ echo '  "NAME_IMAGE_REPO":       "$(NAME_IMAGE_REPO)"'
+	@ echo '  "TAG_REPO_URI_AWS":      "$(TAG_REPO_URI_AWS)"'
+	@ echo '  "VERSION_LARAVEL":       "$(VERSION_LARAVEL)"'
+	@ echo '  "NAME_PROJECT_LARAVEL":  "$(NAME_PROJECT_LARAVEL)"'
 	@ echo '}'
 
 build: version
@@ -55,35 +56,42 @@ build: version
 
 	time docker build \
 	-f $(VERSION_OS)/Dockerfile-$(VERSION) \
-	-t $(NAME_PROJECT):latest .
+	-t $(NAME_IMAGE_REPO):latest .
 
-	docker tag $(NAME_PROJECT):latest $(NAME_PROJECT):$(VERSION)
-	docker tag $(NAME_PROJECT):latest $(NAME_IMAGE_REPO):latest
-	docker tag $(NAME_PROJECT):latest $(NAME_IMAGE_REPO):$(VERSION)
+	docker tag $(NAME_IMAGE_REPO):latest $(NAME_IMAGE_REPO):$(VERSION)
 
 	docker images
 
-buildlaravel:
+buildlaravel: version
 	@ echo '[] Building laravel image...'
-	time docker build -f Dockerfile-$(VERSION_LARAVEL)-laravel-$(VERSION_OS) -t $(NAME_PROJECT_LARAVEL):latest .
+
+	time docker build \
+	--build-arg VERSION="${VERSION}" \
+	--build-arg VERSION_PHP_FPM_MINOR="${VERSION_PHP_FPM_MINOR}" \
+	-f Dockerfile-$(VERSION_LARAVEL)-laravel-$(VERSION_OS) \
+	-t $(NAME_PROJECT_LARAVEL):latest .
+
 	docker tag $(NAME_PROJECT_LARAVEL):latest $(NAME_PROJECT_LARAVEL):$(VERSION)
 
 	docker images
 
-pushtodockerhub:
+pushtodockerhub: version
 	@ echo '[] Building and pushing to Docker Hub ...'
 	# docker push $(NAME_IMAGE_REPO):$(VERSION)
 
 	docker version
 	docker buildx ls
-	docker buildx create --name buildnginxphpfpm
+	docker buildx create --append --name buildnginxphpfpm
 	docker buildx use buildnginxphpfpm
 
 	time docker buildx build \
 	--push \
 	--platform=linux/amd64,linux/arm64 \
 	-f $(VERSION_OS)/Dockerfile-$(VERSION) \
-	-t $(NAME_IMAGE_REPO):$(VERSION) .	
+	-t $(NAME_IMAGE_REPO):$(VERSION) .
+
+	docker buildx stop
+	docker buildx rm buildnginxphpfpm
 
 	docker images
 
@@ -102,7 +110,7 @@ pushtoawsecr: build
 	# docker push $(TAG_REPO_URI_AWS):$(VERSION)
 
 test:
-	docker-compose -f docker-compose-7.25.0-laravel.yml up -d database cache app
+	docker-compose -f docker-compose-$(VERSION_LARAVEL)-laravel.yml up -d database cache app
 
 	@ echo 'Ready!'
 	@ echo ''
@@ -119,4 +127,4 @@ test:
 	@ echo ''
 
 down:
-	docker-compose -f docker-compose-7.25.0-laravel.yml down
+	docker-compose -f docker-compose-$(VERSION_LARAVEL)-laravel.yml down
