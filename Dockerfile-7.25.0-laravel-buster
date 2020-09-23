@@ -10,23 +10,29 @@ ENV VERSION_OS=${VERSION_OS}
 ### ----------------------------------------------------------
 
 RUN set -x && \
-    # install packages
+    # install lib packages
     apt-get update &&\
     apt-get install --no-install-recommends --no-install-suggests -y \
-    # for bz2
-    #   - ref: https://github.com/docker-library/php/issues/47
+        # for bz2
+        #   - ref: https://github.com/docker-library/php/issues/47
         libbz2-dev \
-    # for gd
-    #   - ref: https://stackoverflow.com/questions/61228386/installing-gd-extension-in-docker
+        # for gd
+        #   - ref: https://stackoverflow.com/questions/61228386/installing-gd-extension-in-docker
         libfreetype6-dev \
         libpng-dev \
         libjpeg62-turbo-dev \
+        && \
+    # install general usage packages
+    apt-get install --no-install-recommends --no-install-suggests -y \
+        # for composer
+        git \
         && \
     # docker-php
     #   - Removed `mbstring` on alpine: https://stackoverflow.com/questions/59251008/docker-laravel-configure-error-package-requirements-oniguruma-were-not-m/59253249#59253249
     #     Due to this error: `configure: error: Package requirements (oniguruma) were not met: Package 'oniguruma', required by 'virtual:world', not found`
     docker-php-ext-configure gd --with-freetype --with-jpeg && \
     docker-php-ext-install -j$(nproc) \
+        bcmath \
         mysqli \
         pdo \
         pdo_mysql \
@@ -61,9 +67,12 @@ RUN set -x && \
 ### Test with Laravel
 ### ----------------------------------------------------------
 
+
 COPY php/*.php /usr/share/nginx/html
 COPY laravel-7.25.0/public /usr/share/nginx/html
 COPY laravel-7.25.0 /var/www/html
+COPY php/laravel-7 /var/www/html/
+
 RUN set -x && \
     if [ -f "/var/www/html/composer.lock" ]; then \
         if [ "${APP_ENV}" == "development" ] || [ "${APP_ENV}" == "dev" || "${APP_ENV}" == "staging" ] || [ "${APP_ENV}" == "stage" ]; then \
@@ -77,6 +86,7 @@ RUN set -x && \
     # resolve: The stream or file "/var/www/html/storage/logs/laravel.log" could not be opened in append mode: failed to open stream: Permission denied
     touch /var/www/html/storage/logs/laravel.log && \
     touch /var/log/cron.log && \
+    chown -R www-data:www-data /usr/share/nginx/html && \
     chown -R www-data:www-data /var/www/html && \
     find /var/www/html/storage -type f -exec chmod 664 {} \; && \
     find /var/www/html/storage -type d -exec chmod 770 {} \;

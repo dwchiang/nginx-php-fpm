@@ -62,11 +62,11 @@ These base images will be uploaded to [dwchiang/nginx-php-fpm](https://hub.docke
 
 Part 2 is designed to be **flexible**. 
 
-You can install minimized PHP extensions based on the needs of your PHP application.
+Flexible means you can install minimized PHP extensions based on the needs of your PHP application. (Or any PHP extensions you wants.)
 
 You can get into your container and check the included PHP modules by using `php -m`.
 
-You can find these Dockerfiles in the root folder of this repository. Such as:
+You can find these Dockerfiles in the root folder of this repository:
 
 - `Dockerfile-7.25.0-laravel-alpine3.12`: Running Laravel 7.25.0 based on latest [dwchiang/nginx-php-fpm](https://hub.docker.com/repository/docker/dwchiang/nginx-php-fpm) on Alpine 3.12
 - `Dockerfile-7.25.0-laravel-buster`: Running Laravel 7.25.0 based on latest [dwchiang/nginx-php-fpm](https://hub.docker.com/repository/docker/dwchiang/nginx-php-fpm) on Buster (Debian 10)

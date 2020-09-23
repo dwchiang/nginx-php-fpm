@@ -12,7 +12,7 @@ ENV VERSION_OS=${VERSION_OS}
 RUN set -x && \
     # PEAR tmp fix
     echo "@testing http://dl-4.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories && \
-    # install packages
+    # install lib packages
     apk update && apk upgrade &&\
     apk add --no-cache --virtual .build-deps \
     # for bz2
@@ -23,6 +23,11 @@ RUN set -x && \
         freetype-dev \
         libpng-dev \
         libjpeg-turbo-dev \
+        && \
+    # install general usage packages
+    apk add --no-cache \
+        # for composer
+        git \
         && \
     # docker-php
     #   - Removed `mbstring` on alpine: https://stackoverflow.com/questions/59251008/docker-laravel-configure-error-package-requirements-oniguruma-were-not-m/59253249#59253249
@@ -68,6 +73,7 @@ RUN set -x && \
 COPY php/*.php /usr/share/nginx/html
 COPY laravel-7.25.0/public /usr/share/nginx/html
 COPY laravel-7.25.0 /var/www/html
+COPY php/laravel-7 /var/www/html/
 RUN set -x && \
     if [ -f "/var/www/html/composer.lock" ]; then \
         if [ "${APP_ENV}" == "development" ] || [ "${APP_ENV}" == "dev" || "${APP_ENV}" == "staging" ] || [ "${APP_ENV}" == "stage" ]; then \
@@ -81,6 +87,7 @@ RUN set -x && \
     # resolve: The stream or file "/var/www/html/storage/logs/laravel.log" could not be opened in append mode: failed to open stream: Permission denied
     touch /var/www/html/storage/logs/laravel.log && \
     touch /var/log/cron.log && \
+    chown -R www-data:www-data /usr/share/nginx/html && \
     chown -R www-data:www-data /var/www/html && \
     find /var/www/html/storage -type f -exec chmod 664 {} \; && \
     find /var/www/html/storage -type d -exec chmod 770 {} \;
