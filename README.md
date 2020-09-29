@@ -1,6 +1,6 @@
 # dwchiang/nginx-php-fpm
 
-A Docker image (Dockerfile) that integrates nginx and php-fpm into one bite.
+A Docker image (Dockerfile) that merged nginx & php-fpm into one bite on Alpine and Debian for cloud native, AWS Fargate, AWS ECS, amd64/arm64. 
 
 ---
 
@@ -8,6 +8,8 @@ A Docker image (Dockerfile) that integrates nginx and php-fpm into one bite.
 
 - `7.4.10-fpm-1.18.0-nginx-alpine3.12`
 - `7.4.10-fpm-1.18.0-nginx-buster`
+- `7.3.22-fpm-1.18.0-nginx-alpine3.12`
+- `7.3.22-fpm-1.18.0-nginx-buster`
 
 ---
 
@@ -16,6 +18,7 @@ A Docker image (Dockerfile) that integrates nginx and php-fpm into one bite.
 - **Maintained by**: [Ernest Chiang](https://www.ernestchiang.com/)
 - **Where to file issues**: [https://github.com/dwchiang/nginx-php-fpm/issues](https://github.com/dwchiang/nginx-php-fpm/issues)
 - **Source**: [https://github.com/dwchiang/nginx-php-fpm](https://github.com/dwchiang/nginx-php-fpm)
+- **Benchmark**: [Maintenance.md](https://github.com/dwchiang/nginx-php-fpm/blob/master/docs/Maintenance.md)
 
 ---
 

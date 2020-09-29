@@ -81,6 +81,8 @@ pushtodockerhub: version
 
 	docker version
 	docker buildx ls
+	docker buildx rm buildnginxphpfpm
+	docker buildx ls
 	docker buildx create --append --name buildnginxphpfpm
 	docker buildx use buildnginxphpfpm
 
