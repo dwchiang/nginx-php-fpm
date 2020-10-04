@@ -2,6 +2,8 @@
 
 A Docker image (Dockerfile) that merged nginx & php-fpm into one bite on Alpine and Debian for cloud native, AWS Fargate, AWS ECS, amd64/arm64. 
 
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/dwchiang/nginx-php-fpm/Build)
+
 ---
 
 # Supported tags and respective Dockerfile links
@@ -24,6 +26,7 @@ A Docker image (Dockerfile) that merged nginx & php-fpm into one bite on Alpine 
 
 # Features
 
+- Support multi-arch: amd64/arm64.
 - EXPOSE 80.
 - Using [supervisord](http://supervisord.org/) to manage the processes of nginx and php-fpm.
 - Load minimized PHP Extensions.
