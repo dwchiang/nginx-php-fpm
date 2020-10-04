@@ -12,10 +12,9 @@ GIT_COMMIT_HASH  := $(shell git rev-parse --short HEAD)
 AWS_REGION       := $(AWS_REGION)
 AWS_ACCOUNT_ID   := $(AWS_ACCOUNT_ID)
 
-# NAME_VENDOR      := dwchiang
-# NAME_PROJECT     := nginx-php-fpm
-# NAME_IMAGE_REPO  := $(NAME_VENDOR)/$(NAME_PROJECT)
-NAME_IMAGE_REPO  := dwchiang/nginx-php-fpm
+NAME_VENDOR      := dwchiang
+NAME_PROJECT     := nginx-php-fpm
+NAME_IMAGE_REPO  := $(NAME_VENDOR)/$(NAME_PROJECT)
 TAG_REPO_URI_AWS := $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(NAME_IMAGE_REPO)
 
 
@@ -75,6 +74,14 @@ buildlaravel: version
 	docker tag $(NAME_PROJECT_LARAVEL):latest $(NAME_PROJECT_LARAVEL):$(VERSION)
 
 	docker images
+
+buildongithubactions: version
+	@ echo '[] Building image...'
+	time docker buildx build \
+	--push \
+	--platform=linux/amd64,linux/arm64 \
+	-f $(VERSION_OS)/Dockerfile-$(VERSION) \
+	-t $(NAME_IMAGE_REPO):$(VERSION) .	
 
 pushtodockerhub: version
 	@ echo '[] Building and pushing to Docker Hub ...'
