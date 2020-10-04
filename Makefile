@@ -12,9 +12,10 @@ GIT_COMMIT_HASH  := $(shell git rev-parse --short HEAD)
 AWS_REGION       := $(AWS_REGION)
 AWS_ACCOUNT_ID   := $(AWS_ACCOUNT_ID)
 
-NAME_VENDOR      := dwchiang
-NAME_PROJECT     := nginx-php-fpm
-NAME_IMAGE_REPO  := $(NAME_VENDOR)/$(NAME_PROJECT)
+# NAME_VENDOR      := dwchiang
+# NAME_PROJECT     := nginx-php-fpm
+# NAME_IMAGE_REPO  := $(NAME_VENDOR)/$(NAME_PROJECT)
+NAME_IMAGE_REPO  := dwchiang/nginx-php-fpm
 TAG_REPO_URI_AWS := $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(NAME_IMAGE_REPO)
 
 
