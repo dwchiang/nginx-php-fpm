@@ -31,6 +31,12 @@ A Docker image (Dockerfile) that merged nginx & php-fpm into one bite on Alpine 
 
 ---
 
+# Getting Started
+
+- [Workshops: Running Laravel on AWS ECS](https://github.com/dwchiang/laravel-on-aws-ecs-workshops)
+
+---
+
 # Original Intention
 
 I love PHP since PHP3 and I'm very happy to run more PHP applications and services in a cloud native way. I mainly tunes it to run on [AWS Fargate](https://www.ernestchiang.com/en/notes/aws/ecs/), but you can run on any platforms or local machines.
