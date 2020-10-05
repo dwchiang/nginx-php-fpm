@@ -1,4 +1,4 @@
-.PHONY: help version build buildlaravel pushtodockerhub pushtoawsecr test down
+.PHONY: help version build buildlaravel buildongithubactions pushtodockerhub pushtoawsecr test down
 
 VERSION_PHP_FPM        := $(VERSION_PHP_FPM)
 VERSION_PHP_FPM_MINOR  := $(shell cut -d '.' -f 1 <<< $(VERSION_PHP_FPM)).$(shell cut -d '.' -f 2 <<< $(VERSION_PHP_FPM))
@@ -7,6 +7,7 @@ VERSION_NGINX          := $(VERSION_NGINX)
 VERSION_OS             := $(VERSION_OS)
 VERSION                := $(VERSION_PHP_FPM)-fpm-$(VERSION_NGINX)-nginx-$(VERSION_OS)
 VERSION_MINOR          := $(VERSION_PHP_FPM_MINOR)-fpm-$(VERSION_NGINX)-nginx-$(VERSION_OS)
+IS_LATEST              := $(IS_LATEST)
 
 GIT_COMMIT_HASH  := $(shell git rev-parse --short HEAD)
 AWS_REGION       := $(AWS_REGION)
@@ -76,12 +77,26 @@ buildlaravel: version
 	docker images
 
 buildongithubactions: version
-	@ echo '[] Building image...'
+	@ echo '[] Building image on GitHub Actions...'
+ifeq ($(IS_LATEST),true)
+	echo 'IS_LATEST=true'
+
 	time docker buildx build \
 	--push \
 	--platform=linux/amd64,linux/arm64 \
 	-f $(VERSION_OS)/Dockerfile-$(VERSION) \
-	-t $(NAME_IMAGE_REPO):$(VERSION) .	
+	-t $(NAME_IMAGE_REPO):latest \
+	-t $(NAME_IMAGE_REPO):$(VERSION) .
+else
+	echo 'IS_LATEST=false or unknown'
+
+	time docker buildx build \
+	--push \
+	--platform=linux/amd64,linux/arm64 \
+	-f $(VERSION_OS)/Dockerfile-$(VERSION) \
+	-t $(NAME_IMAGE_REPO):$(VERSION) .
+endif
+	@ echo '[] Finished build image on GitHub Actions...'
 
 pushtodockerhub: version
 	@ echo '[] Building and pushing to Docker Hub ...'
@@ -94,11 +109,24 @@ pushtodockerhub: version
 	docker buildx create --append --name buildnginxphpfpm
 	docker buildx use buildnginxphpfpm
 
+ifeq ($(IS_LATEST),true)
+	echo 'IS_LATEST=true'
+
+	time docker buildx build \
+	--push \
+	--platform=linux/amd64,linux/arm64 \
+	-f $(VERSION_OS)/Dockerfile-$(VERSION) \
+	-t $(NAME_IMAGE_REPO):latest \
+	-t $(NAME_IMAGE_REPO):$(VERSION) .
+else
+	echo 'IS_LATEST=false or unknown'
+
 	time docker buildx build \
 	--push \
 	--platform=linux/amd64,linux/arm64 \
 	-f $(VERSION_OS)/Dockerfile-$(VERSION) \
 	-t $(NAME_IMAGE_REPO):$(VERSION) .
+endif
 
 	docker buildx stop
 	docker buildx rm buildnginxphpfpm

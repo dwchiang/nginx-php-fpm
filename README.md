@@ -8,10 +8,14 @@ A Docker image (Dockerfile) that merged nginx & php-fpm into one bite on Alpine 
 
 # Supported tags and respective Dockerfile links
 
-- `7.4.10-fpm-1.18.0-nginx-alpine3.12`
-- `7.4.10-fpm-1.18.0-nginx-buster`
-- `7.3.22-fpm-1.18.0-nginx-alpine3.12`
-- `7.3.22-fpm-1.18.0-nginx-buster`
+- `7.4.11-fpm-1.18.0-nginx-alpine3.12`
+- `7.4.11-fpm-1.18.0-nginx-buster`, `latest`
+- [`7.4.10-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.4.10-fpm-1.18.0-nginx-alpine3.12)
+- [`7.4.10-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.4.10-fpm-1.18.0-nginx-buster)
+- `7.3.23-fpm-1.18.0-nginx-alpine3.12`
+- `7.3.23-fpm-1.18.0-nginx-buster`
+- [`7.3.22-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.3.22-fpm-1.18.0-nginx-alpine3.12)
+- [`7.3.22-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.3.22-fpm-1.18.0-nginx-buster)
 
 ---
 
@@ -21,15 +25,15 @@ A Docker image (Dockerfile) that merged nginx & php-fpm into one bite on Alpine 
 - **Where to file issues**: [https://github.com/dwchiang/nginx-php-fpm/issues](https://github.com/dwchiang/nginx-php-fpm/issues)
 - **Source**: [https://github.com/dwchiang/nginx-php-fpm](https://github.com/dwchiang/nginx-php-fpm)
 - **Benchmark**: [Maintenance.md](https://github.com/dwchiang/nginx-php-fpm/blob/master/docs/Maintenance.md)
+- **Supported architectures**: `amd64`, `arm64`.
 
 ---
 
 # Features
 
-- Support multi-arch: amd64/arm64.
 - EXPOSE 80.
 - Using [supervisord](http://supervisord.org/) to manage the processes of nginx and php-fpm.
-- Load minimized PHP Extensions.
+- Load **minimized** PHP Extensions.
 - Run scripts in `/docker-entrypoint.d/`
 
 ---
