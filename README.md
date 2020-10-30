@@ -8,16 +8,21 @@ A Docker image (Dockerfile) that merged nginx & php-fpm into one bite on Alpine 
 
 # Supported tags and respective Dockerfile links
 
-- `7.4.12-fpm-1.18.0-nginx-alpine3.12`
-- `7.4.12-fpm-1.18.0-nginx-buster`, `latest`
-- `7.4.11-fpm-1.18.0-nginx-alpine3.12`
-- `7.4.11-fpm-1.18.0-nginx-buster`,
+## PHP 7.4
+
+- [`7.4.12-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.4.12-fpm-1.18.0-nginx-alpine3.12)
+- [`7.4.12-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.4.12-fpm-1.18.0-nginx-buster), `latest`
+- [`7.4.11-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.4.11-fpm-1.18.0-nginx-alpine3.12)
+- [`7.4.11-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.4.11-fpm-1.18.0-nginx-buster)
 - [`7.4.10-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.4.10-fpm-1.18.0-nginx-alpine3.12)
 - [`7.4.10-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.4.10-fpm-1.18.0-nginx-buster)
-- `7.3.24-fpm-1.18.0-nginx-alpine3.12`
-- `7.3.24-fpm-1.18.0-nginx-buster`
-- `7.3.23-fpm-1.18.0-nginx-alpine3.12`
-- `7.3.23-fpm-1.18.0-nginx-buster`
+
+## PHP 7.3
+
+- [`7.3.24-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.3.24-fpm-1.18.0-nginx-alpine3.12)
+- [`7.3.24-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.3.24-fpm-1.18.0-nginx-buster)
+- [`7.3.23-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.3.23-fpm-1.18.0-nginx-alpine3.12)
+- [`7.3.23-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.3.23-fpm-1.18.0-nginx-buster)
 - [`7.3.22-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.3.22-fpm-1.18.0-nginx-alpine3.12)
 - [`7.3.22-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.3.22-fpm-1.18.0-nginx-buster)
 
