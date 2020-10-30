@@ -75,4 +75,10 @@ make version
 
 # Build
 make buildlaravel
+
+# Test
+make test
+
+# Finish the Test
+make down
 ```
