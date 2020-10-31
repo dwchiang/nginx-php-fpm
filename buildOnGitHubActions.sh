@@ -19,7 +19,7 @@ export VERSION_NGINX=1.18.0
 export VERSION_LARAVEL=7.25.0
 export IS_LATEST=false
 
-make $BUILD_CMD
+# make $BUILD_CMD
 
 export VERSION_PHP_FPM=7.4.11
 export VERSION_NGINX=1.18.0
@@ -43,7 +43,7 @@ export VERSION_NGINX=1.18.0
 export VERSION_LARAVEL=7.25.0
 export IS_LATEST=false
 
-make $BUILD_CMD
+# make $BUILD_CMD
 
 export VERSION_PHP_FPM=7.3.23
 export VERSION_NGINX=1.18.0
