@@ -44,7 +44,9 @@ make build
 
 - Ref: [https://laravel.com/docs/master/installation](https://laravel.com/docs/master/installation)
 - x.y.z = 
-    - `7.25.0`
+    - `7.25.0` to test with php `7.4.x`, `7.3.x`. In the beginning phase of this project.
+    - `7.30.0` to test with php `8.0.x`, `7.4.x`, `7.3.x`. Since 2020-12-20.
+    - `8.5.5` to test with php `8.0.x`, `7.4.x`, `7.3.x`. Since 2020-12-20.
 
 Format:
 
@@ -56,6 +58,10 @@ Example:
 
 ```
 composer create-project --prefer-dist laravel/laravel:7.25.0 laravel-7.25.0
+
+composer create-project --prefer-dist laravel/laravel:7.30.0 laravel-7.30.0
+
+composer create-project --prefer-dist laravel/laravel:8.5.5 laravel-8.5.5
 ```
 
 ### Build docker image with this source folder
