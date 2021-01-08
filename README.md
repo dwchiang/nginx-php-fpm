@@ -8,23 +8,40 @@ A Docker image (Dockerfile) that merged nginx & php-fpm into one bite on Alpine 
 
 # Supported tags and respective Dockerfile links
 
+- **Full tag list** (included older tags): [https://github.com/dwchiang/nginx-php-fpm](https://github.com/dwchiang/nginx-php-fpm)
+
+## PHP 8.0
+
+- [`8.0.1-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-8.0.1-fpm-1.18.0-nginx-buster), `latest`
+- [`8.0.1-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-8.0.1-fpm-1.18.0-nginx-alpine3.12)
+- [`8.0.0-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-8.0.0-fpm-1.18.0-nginx-buster)
+- [`8.0.0-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-8.0.0-fpm-1.18.0-nginx-alpine3.12)
+
 ## PHP 7.4
 
+- [`7.4.14-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.4.14-fpm-1.18.0-nginx-buster)
+- [`7.4.14-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.4.14-fpm-1.18.0-nginx-alpine3.12)
+- [`7.4.13-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.4.13-fpm-1.18.0-nginx-buster)
+- [`7.4.13-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.4.13-fpm-1.18.0-nginx-alpine3.12)
+- [`7.4.12-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.4.12-fpm-1.18.0-nginx-buster)
 - [`7.4.12-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.4.12-fpm-1.18.0-nginx-alpine3.12)
-- [`7.4.12-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.4.12-fpm-1.18.0-nginx-buster), `latest`
-- [`7.4.11-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.4.11-fpm-1.18.0-nginx-alpine3.12)
 - [`7.4.11-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.4.11-fpm-1.18.0-nginx-buster)
-- [`7.4.10-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.4.10-fpm-1.18.0-nginx-alpine3.12)
+- [`7.4.11-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.4.11-fpm-1.18.0-nginx-alpine3.12)
 - [`7.4.10-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.4.10-fpm-1.18.0-nginx-buster)
+- [`7.4.10-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.4.10-fpm-1.18.0-nginx-alpine3.12)
 
 ## PHP 7.3
 
-- [`7.3.24-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.3.24-fpm-1.18.0-nginx-alpine3.12)
+- [`7.3.26-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.3.26-fpm-1.18.0-nginx-buster)
+- [`7.3.26-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.3.26-fpm-1.18.0-nginx-alpine3.12)
+- [`7.3.25-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.3.25-fpm-1.18.0-nginx-buster)
+- [`7.3.25-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.3.25-fpm-1.18.0-nginx-alpine3.12)
 - [`7.3.24-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.3.24-fpm-1.18.0-nginx-buster)
-- [`7.3.23-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.3.23-fpm-1.18.0-nginx-alpine3.12)
+- [`7.3.24-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.3.24-fpm-1.18.0-nginx-alpine3.12)
 - [`7.3.23-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.3.23-fpm-1.18.0-nginx-buster)
-- [`7.3.22-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.3.22-fpm-1.18.0-nginx-alpine3.12)
+- [`7.3.23-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.3.23-fpm-1.18.0-nginx-alpine3.12)
 - [`7.3.22-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.3.22-fpm-1.18.0-nginx-buster)
+- [`7.3.22-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.3.22-fpm-1.18.0-nginx-alpine3.12)
 
 ---
 
@@ -78,8 +95,8 @@ Here list some useful pathes you may want to modify at Part 2:
 
 You can find the base image Dockerfiles in these folders:
 
-- `alpine3.12`
 - `buster`
+- `alpine3.12`
 
 These base images will be uploaded to [dwchiang/nginx-php-fpm](https://hub.docker.com/repository/docker/dwchiang/nginx-php-fpm) on Docker Hub.
 
@@ -91,12 +108,16 @@ Flexible means you can install minimized PHP extensions based on the needs of yo
 
 You can get into your container and check the included PHP modules by using `php -m`.
 
-You can find these Dockerfiles in the root folder of this repository:
+You can find these Dockerfiles in the root folder of this repository [dwchiang/nginx-php-fpm](https://hub.docker.com/repository/docker/dwchiang/nginx-php-fpm):
 
-- `Dockerfile-7.25.0-laravel-alpine3.12`: Running Laravel 7.25.0 based on latest [dwchiang/nginx-php-fpm](https://hub.docker.com/repository/docker/dwchiang/nginx-php-fpm) on Alpine 3.12
-- `Dockerfile-7.25.0-laravel-buster`: Running Laravel 7.25.0 based on latest [dwchiang/nginx-php-fpm](https://hub.docker.com/repository/docker/dwchiang/nginx-php-fpm) on Buster (Debian 10)
+- `Dockerfile-8.5.5-laravel-buster`: Running Laravel 8.5.5 on Buster (Debian 10)
+- `Dockerfile-8.5.5-laravel-alpine3.12`: Running Laravel 8.5.5 on Alpine 3.12
+- `Dockerfile-7.30.0-laravel-buster`: Running Laravel 7.30.0 on Buster (Debian 10)
+- `Dockerfile-7.30.0-laravel-alpine3.12`: Running Laravel 7.30.0 on Alpine 3.12
+- `Dockerfile-7.25.0-laravel-buster`: Running Laravel 7.25.0 on Buster (Debian 10)
+- `Dockerfile-7.25.0-laravel-alpine3.12`: Running Laravel 7.25.0 on Alpine 3.12
 
-This project will not upload the images of Part 2 on Docker Hub. Please kindly use Part 2 as your Dockerfile reference to build your own and enjoy the fun :)
+This project will not upload the images of Part 2 on Docker Hub. Please kindly use Part 2 as your Dockerfile reference to build your own and enjoy the fun :) You can also have a try to this [Workshops: Running Laravel on AWS ECS](https://github.com/dwchiang/laravel-on-aws-ecs-workshops).
 
 Please find the `docker build` detailed parameters at the `buildlaravel` section in the `Makefile`.
 
