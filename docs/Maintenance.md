@@ -113,21 +113,20 @@ make down
 
 # Step 4: Update Build Scripts
 
-- Type A (local): `build.sh` is using `pushtodockerhub` as build command. 
-    - It's designed to run on **local machine** and push into Docker Hub.
-
-```
-vim build.sh
-```
-
-- Type B (GitHubActions): `buildOnGitHubActions.sh` is using `buildongithubactions` as build command. 
+- Type Golden (GitHubActions): `buildOnGitHubActions.sh` is using `buildongithubactions` as build command. 
     - It's designed to run on **GitHub Actions** and push into Docker Hub.
 
 ```
 vim buildOnGitHubActions.sh
 ```
 
-- There is only one line different between these build files. I usually update `buildOnGitHubActions.sh` as the golden sample.
+- Type Local: `build.sh` is using `pushtodockerhub` as build command. 
+    - There is only one line different between these build files. I usually update `buildOnGitHubActions.sh` as the golden sample.
+    - It's designed to run on **local machine** and push into Docker Hub.
+
+```
+vim build.sh
+```
 
 # Step 5: Update README.md
 
