@@ -32,6 +32,8 @@ A Docker image (Dockerfile) that merged nginx & php-fpm into one bite on Alpine 
 
 ## PHP 7.3
 
+- [`7.3.27-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.3.26-fpm-1.18.0-nginx-buster)
+- [`7.3.27-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.3.26-fpm-1.18.0-nginx-alpine3.12)
 - [`7.3.26-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.3.26-fpm-1.18.0-nginx-buster)
 - [`7.3.26-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.3.26-fpm-1.18.0-nginx-alpine3.12)
 - [`7.3.25-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.3.25-fpm-1.18.0-nginx-buster)

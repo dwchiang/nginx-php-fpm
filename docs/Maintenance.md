@@ -17,7 +17,9 @@ To see if there is any new version and changes in Dockerfile.
 
 ## 2.1 Duplicate a Dockerfile
 
-Dupicate a Dockerfile to match latest version codes of php-fpm and nginx, based on the existing Dockerfile of this project under `./buster/` and/or `./alpine3.12`.
+Goal: Dupicate a Dockerfile to match latest version codes of php-fpm and nginx, based on the existing Dockerfile of this project under `./buster/` and/or `./alpine3.12`.
+
+Method: Execute below in shell:
 
 ```
 # Operation System version
@@ -112,14 +114,14 @@ make down
 # Step 4: Update Build Scripts
 
 - Type A (local): `build.sh` is using `pushtodockerhub` as build command. 
-    - It's designed to run on local machine and push into Docker Hub.
+    - It's designed to run on **local machine** and push into Docker Hub.
 
 ```
 vim build.sh
 ```
 
 - Type B (GitHubActions): `buildOnGitHubActions.sh` is using `buildongithubactions` as build command. 
-    - It's designed to run on local machine and push into Docker Hub.
+    - It's designed to run on **GitHub Actions** and push into Docker Hub.
 
 ```
 vim buildOnGitHubActions.sh
