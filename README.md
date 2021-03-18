@@ -1,8 +1,12 @@
 # dwchiang/nginx-php-fpm
 
-A Docker image (Dockerfile) that merged nginx & php-fpm into one bite on Alpine and Debian for cloud native, AWS Fargate, AWS ECS, amd64/arm64. 
+A Docker image (Dockerfile) that merged nginx & php-fpm into one bite on Debian/Alpine for cloud native, AWS Fargate, Amazon ECS, amd64/arm64. 
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/dwchiang/nginx-php-fpm/Build)
+Brought to you by Ernest Chiang, an [AWS Community Hero](https://aws.amazon.com/developer/community/heroes/ernest-chiang/).
+
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/dwchiang/nginx-php-fpm/Build) ![Docker Pulls](https://img.shields.io/docker/pulls/dwchiang/nginx-php-fpm)
+
+You may also be interested in: [Workshops: Running Laravel on AWS ECS](https://github.com/dwchiang/laravel-on-aws-ecs-workshops).
 
 ---
 
@@ -12,7 +16,9 @@ A Docker image (Dockerfile) that merged nginx & php-fpm into one bite on Alpine 
 
 ## PHP 8.0
 
-- [`8.0.1-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-8.0.1-fpm-1.18.0-nginx-buster), `latest`
+- [`8.0.2-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-8.0.2-fpm-1.18.0-nginx-buster), `latest`
+- [`8.0.2-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-8.0.2-fpm-1.18.0-nginx-alpine3.12)
+- [`8.0.1-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-8.0.1-fpm-1.18.0-nginx-buster)
 - [`8.0.1-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-8.0.1-fpm-1.18.0-nginx-alpine3.12)
 - [`8.0.0-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-8.0.0-fpm-1.18.0-nginx-buster)
 - [`8.0.0-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-8.0.0-fpm-1.18.0-nginx-alpine3.12)
@@ -56,7 +62,8 @@ A Docker image (Dockerfile) that merged nginx & php-fpm into one bite on Alpine 
 - **Maintained by**: [Ernest Chiang](https://www.ernestchiang.com/)
 - **Where to file issues**: [https://github.com/dwchiang/nginx-php-fpm/issues](https://github.com/dwchiang/nginx-php-fpm/issues)
 - **Source**: [https://github.com/dwchiang/nginx-php-fpm](https://github.com/dwchiang/nginx-php-fpm)
-- **Benchmark**: [Maintenance.md](https://github.com/dwchiang/nginx-php-fpm/blob/master/docs/Maintenance.md)
+- **Benchmark**: [Benchmark.md](https://github.com/dwchiang/nginx-php-fpm/blob/master/docs/Benchmark.md)
+- **Maintenance**: [Maintenance.md](https://github.com/dwchiang/nginx-php-fpm/blob/master/docs/Maintenance.md)
 - **Supported architectures**: `amd64`, `arm64`.
 
 ---
@@ -78,12 +85,15 @@ A Docker image (Dockerfile) that merged nginx & php-fpm into one bite on Alpine 
 
 # Original Intention
 
-I love PHP since PHP3 and I'm very happy to run more PHP applications and services in a cloud native way. I mainly tunes it to run on [AWS Fargate](https://www.ernestchiang.com/en/notes/aws/ecs/), but you can run on any platforms or local machines.
+I love PHP since PHP3 (1997) and I'm very happy to run more PHP applications and services in a cloud native way. I mainly tunes it to run on [Amazon ECS](https://www.ernestchiang.com/en/notes/aws/ecs/), but you can run on any platforms or local machines.
+
+---
+# Introduction
 
 This Docker image is designed to run all kinds of PHP applications by decoupling into 2 parts: 
 
-1. Base image,
-2. PHP extension installation & PHP application and configuration.
+- Part 1: Base image,
+- Part 2: PHP extension installation & PHP application and configuration.
 
 These two parts are separated Dockerfiles. This project repository will maintain the Part 1: base images, and having some reference examples for Part 2. You can find a Dockerfile of Part 2 as reference, and modify it for fitting into your project by adding some PHP extensions and maybe a few extra scripts.
 
@@ -114,7 +124,7 @@ Flexible means you can install minimized PHP extensions based on the needs of yo
 
 You can get into your container and check the included PHP modules by using `php -m`.
 
-You can find these Dockerfiles in the root folder of this repository [dwchiang/nginx-php-fpm](https://hub.docker.com/repository/docker/dwchiang/nginx-php-fpm):
+You can find these Dockerfiles in the root folder of this repository [dwchiang/nginx-php-fpm](https://github.com/dwchiang/nginx-php-fpm) on GitHub:
 
 - `Dockerfile-8.5.5-laravel-buster`: Running Laravel 8.5.5 on Buster (Debian 10)
 - `Dockerfile-8.5.5-laravel-alpine3.12`: Running Laravel 8.5.5 on Alpine 3.12
@@ -123,7 +133,11 @@ You can find these Dockerfiles in the root folder of this repository [dwchiang/n
 - `Dockerfile-7.25.0-laravel-buster`: Running Laravel 7.25.0 on Buster (Debian 10)
 - `Dockerfile-7.25.0-laravel-alpine3.12`: Running Laravel 7.25.0 on Alpine 3.12
 
-This project will not upload the images of Part 2 on Docker Hub. Please kindly use Part 2 as your Dockerfile reference to build your own and enjoy the fun :) You can also have a try to this [Workshops: Running Laravel on AWS ECS](https://github.com/dwchiang/laravel-on-aws-ecs-workshops).
+This project will **not** upload the images of Part 2 on Docker Hub. 
+
+Please kindly use Part 2 as your Dockerfile reference to build your own Dockerfile, and enjoy the fun :) 
+
+You can also have a try to this [Workshops: Running Laravel on AWS ECS](https://github.com/dwchiang/laravel-on-aws-ecs-workshops).
 
 Please find the `docker build` detailed parameters at the `buildlaravel` section in the `Makefile`.
 
