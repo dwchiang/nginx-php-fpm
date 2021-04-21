@@ -2,45 +2,33 @@
 
 - Test environment:
     - MacBook Pro (13-inch, 2020, Four Thunderbolt 3 ports)
-    - CPU 2 GHz Quad-Core Intel Core i5
+    - CPU 2 GHz Quad-Core Intel Core i5 (x86)
     - Docker-compose Container conditions:
         - 1 CPU
         - 512m memory
 - Test preparation:
-    - Clean containers. `make down; make test;`
+    - Make sure to have a clean testing environment **every time**: `make down; make clean; make buildlaravel; make test`
+    - Wait couple seconds, then: `make seedlaravel`
+        - which will do the database migrate and seeding (50 fake users) by executing `php artisan migrate; php artisan db:seed` in the container.
+    - Check the URL in a browser to make sure it works before hitting by any testing tool.
 - Test conditions: 
-    - Concurrent 15
+    - Concurrent 1
     - Duration 60 seconds (1 minute)
 
 ```
 # Using wrk
-wrk -t 1 -c 15 -d 60 http://localhost:8082/
-wrk -t 1 -c 15 -d 60 http://localhost:8082/names
+wrk -t 1 -c 1 -d 60 http://localhost:8082/
+wrk -t 1 -c 1 -d 60 http://localhost:8082/names
 ```
 
 ```
 # Using ab
-ab -t 60 -c 15 http://localhost:8082/
+ab -t 60 -c 1 http://localhost:8082/
 ```
 
 # Benchmark Results
 
-Unit: **Requests/sec**
+Please refer to Ernest's blog post:
 
-## Laravel 7.25.0 Homepage (View only)
-
-- Alpine 3.12
-    - PHP 7.4.10: **112.09**
-    - PHP 7.3.22: **112.00**
-- Buster
-    - PHP 7.4.10: **120.75**
-    - PHP 7.3.22: **118.18**
-
-## Laravel 7.25.0 Names (with a database query for 50 user records)
-
-- Alpine 3.12
-    - PHP 7.4.10: **69.44**
-    - PHP 7.3.22: **70.74**
-- Buster
-    - PHP 7.4.10: **74.66**
-    - PHP 7.3.22: **74.05**
+- (zh) [Laravel PHP8/PHP7 Debian/Alpine 容器效能比較](https://www.ernestchiang.com/zh/posts/2021/2021-04-17-benchmark-nginx-php-fpm-between-buster-alpine/)
+- (en) on-going

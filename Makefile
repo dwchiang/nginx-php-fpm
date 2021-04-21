@@ -77,7 +77,8 @@ buildlaravel: version
 	docker images
 
 buildongithubactions: version
-	@ echo '[] Building image on GitHub Actions...'
+	@ echo '[] Building image on GitHub Actions and push to Docker Hub...'
+
 ifeq ($(IS_LATEST),true)
 	echo 'IS_LATEST=true'
 
@@ -96,6 +97,29 @@ else
 	-f $(VERSION_OS)/Dockerfile-$(VERSION) \
 	-t $(NAME_IMAGE_REPO):$(VERSION) .
 endif
+
+	@ echo '[] Building image on GitHub Actions and push to AWS ECR Public...'
+	aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
+
+ifeq ($(IS_LATEST),true)
+	echo 'IS_LATEST=true'
+
+	time docker buildx build \
+	--push \
+	--platform=linux/amd64,linux/arm64 \
+	-f $(VERSION_OS)/Dockerfile-$(VERSION) \
+	-t $(NAME_IMAGE_REPO):latest \
+	-t $(NAME_IMAGE_REPO):$(VERSION) .
+else
+	echo 'IS_LATEST=false or unknown'
+
+	time docker buildx build \
+	--push \
+	--platform=linux/amd64,linux/arm64 \
+	-f $(VERSION_OS)/Dockerfile-$(VERSION) \
+	-t $(NAME_IMAGE_REPO):$(VERSION) .
+endif
+
 	@ echo '[] Finished build image on GitHub Actions...'
 
 pushtodockerhub: version
@@ -164,5 +188,16 @@ test:
 	@ echo '  +----------------------------------------------------------+'
 	@ echo ''
 
+seedlaravel:
+	@ echo '[] Seeding in your laravel container... (please `make test` first)'
+
+	docker-compose -f docker-compose-$(VERSION_LARAVEL)-laravel.yml exec app php artisan migrate
+	docker-compose -f docker-compose-$(VERSION_LARAVEL)-laravel.yml exec app php artisan db:seed
+
 down:
 	docker-compose -f docker-compose-$(VERSION_LARAVEL)-laravel.yml down
+
+clean:
+	docker-compose -f docker-compose-$(VERSION_LARAVEL)-laravel.yml down -v --rmi local --remove-orphans
+	docker image prune -f
+	docker images
