@@ -50,7 +50,7 @@ export VERSION_NGINX=1.18.0
 export VERSION_LARAVEL=7.30.0
 export IS_LATEST=false
 
-# make $BUILD_CMD
+make $BUILD_CMD
 
 # export VERSION_PHP_FPM=7.4.15
 # export VERSION_NGINX=1.18.0
@@ -97,12 +97,12 @@ export IS_LATEST=false
 ### ----------------------------------------------------------
 ### PHP 7.3
 
-# export VERSION_PHP_FPM=7.3.27
-# export VERSION_NGINX=1.18.0
-# export VERSION_LARAVEL=8.5.5
-# export IS_LATEST=false
+export VERSION_PHP_FPM=7.3.27
+export VERSION_NGINX=1.18.0
+export VERSION_LARAVEL=8.5.5
+export IS_LATEST=false
 
-# make $BUILD_CMD
+make $BUILD_CMD
 
 # export VERSION_PHP_FPM=7.3.26
 # export VERSION_NGINX=1.18.0
@@ -182,12 +182,12 @@ export VERSION_OS=alpine3.12
 ### ----------------------------------------------------------
 ### PHP 7.4
 
-export VERSION_PHP_FPM=7.4.16
-export VERSION_NGINX=1.18.0
-export VERSION_LARAVEL=7.30.0
-export IS_LATEST=false
+# export VERSION_PHP_FPM=7.4.16
+# export VERSION_NGINX=1.18.0
+# export VERSION_LARAVEL=7.30.0
+# export IS_LATEST=false
 
-make $BUILD_CMD
+# make $BUILD_CMD
 
 # export VERSION_PHP_FPM=7.4.15
 # export VERSION_NGINX=1.18.0
@@ -234,12 +234,12 @@ make $BUILD_CMD
 ### ----------------------------------------------------------
 ### PHP 7.3
 
-# export VERSION_PHP_FPM=7.3.27
-# export VERSION_NGINX=1.18.0
-# export VERSION_LARAVEL=8.5.5
-# export IS_LATEST=false
+export VERSION_PHP_FPM=7.3.27
+export VERSION_NGINX=1.18.0
+export VERSION_LARAVEL=8.5.5
+export IS_LATEST=false
 
-# make $BUILD_CMD
+make $BUILD_CMD
 
 # export VERSION_PHP_FPM=7.3.26
 # export VERSION_NGINX=1.18.0
