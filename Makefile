@@ -16,7 +16,7 @@ AWS_ACCOUNT_ID   := $(AWS_ACCOUNT_ID)
 NAME_VENDOR      := dwchiang
 NAME_PROJECT     := nginx-php-fpm
 NAME_IMAGE_REPO  := $(NAME_VENDOR)/$(NAME_PROJECT)
-TAG_REPO_URI_AWS := $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(NAME_IMAGE_REPO)
+TAG_REPO_URI_AWS := public.ecr.aws/n0b9n5m7/nginx-php-fpm
 
 
 VERSION_LARAVEL      := $(VERSION_LARAVEL)
@@ -108,8 +108,8 @@ ifeq ($(IS_LATEST),true)
 	--push \
 	--platform=linux/amd64,linux/arm64 \
 	-f $(VERSION_OS)/Dockerfile-$(VERSION) \
-	-t $(NAME_IMAGE_REPO):latest \
-	-t $(NAME_IMAGE_REPO):$(VERSION) .
+	-t $(TAG_REPO_URI_AWS):latest \
+	-t $(TAG_REPO_URI_AWS):$(VERSION) .
 else
 	echo 'IS_LATEST=false or unknown'
 
@@ -117,7 +117,7 @@ else
 	--push \
 	--platform=linux/amd64,linux/arm64 \
 	-f $(VERSION_OS)/Dockerfile-$(VERSION) \
-	-t $(NAME_IMAGE_REPO):$(VERSION) .
+	-t $(TAG_REPO_URI_AWS):$(VERSION) .
 endif
 
 	@ echo '[] Finished build image on GitHub Actions...'
