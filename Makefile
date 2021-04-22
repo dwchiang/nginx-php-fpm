@@ -79,25 +79,6 @@ buildlaravel: version
 buildongithubactions: version
 	@ echo '[] Building image on GitHub Actions and push to Docker Hub...'
 
-ifeq ($(IS_LATEST),true)
-	echo 'IS_LATEST=true'
-
-	time docker buildx build \
-	--push \
-	--platform=linux/amd64,linux/arm64 \
-	-f $(VERSION_OS)/Dockerfile-$(VERSION) \
-	-t $(NAME_IMAGE_REPO):latest \
-	-t $(NAME_IMAGE_REPO):$(VERSION) .
-else
-	echo 'IS_LATEST=false or unknown'
-
-	time docker buildx build \
-	--push \
-	--platform=linux/amd64,linux/arm64 \
-	-f $(VERSION_OS)/Dockerfile-$(VERSION) \
-	-t $(NAME_IMAGE_REPO):$(VERSION) .
-endif
-
 	@ echo '[] Building image on GitHub Actions and push to AWS ECR Public...'
 	aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
 
@@ -108,6 +89,8 @@ ifeq ($(IS_LATEST),true)
 	--push \
 	--platform=linux/amd64,linux/arm64 \
 	-f $(VERSION_OS)/Dockerfile-$(VERSION) \
+	-t $(NAME_IMAGE_REPO):latest \
+	-t $(NAME_IMAGE_REPO):$(VERSION) \
 	-t $(TAG_REPO_URI_AWS):latest \
 	-t $(TAG_REPO_URI_AWS):$(VERSION) .
 else
@@ -117,6 +100,7 @@ else
 	--push \
 	--platform=linux/amd64,linux/arm64 \
 	-f $(VERSION_OS)/Dockerfile-$(VERSION) \
+	-t $(NAME_IMAGE_REPO):$(VERSION) \
 	-t $(TAG_REPO_URI_AWS):$(VERSION) .
 endif
 
