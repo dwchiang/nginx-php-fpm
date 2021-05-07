@@ -29,6 +29,8 @@ You may also be interested in: [Workshops: Running Laravel on AWS ECS](https://g
 
 ## PHP 7.4
 
+- [`7.4.18-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.4.18-fpm-1.18.0-nginx-buster)
+- [`7.4.18-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.4.18-fpm-1.18.0-nginx-alpine3.12)
 - [`7.4.16-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.4.16-fpm-1.18.0-nginx-buster)
 - [`7.4.16-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.4.16-fpm-1.18.0-nginx-alpine3.12)
 - [`7.4.15-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.4.15-fpm-1.18.0-nginx-buster)
@@ -66,7 +68,8 @@ You may also be interested in: [Workshops: Running Laravel on AWS ECS](https://g
 - **Maintained by**: [Ernest Chiang](https://www.ernestchiang.com/)
 - **Where to file issues**: [https://github.com/dwchiang/nginx-php-fpm/issues](https://github.com/dwchiang/nginx-php-fpm/issues)
 - **Source**: [https://github.com/dwchiang/nginx-php-fpm](https://github.com/dwchiang/nginx-php-fpm)
-- **Benchmark**: [Benchmark.md](https://github.com/dwchiang/nginx-php-fpm/blob/master/docs/Benchmark.md)
+- **Registry**: [AWS ECR Public](https://gallery.ecr.aws/dwchiang/nginx-php-fpm), and [Docker Hub](https://hub.docker.com/r/dwchiang/nginx-php-fpm).
+- **Benchmark**: [Benchmark.md](https://github.com/dwchiang/nginx-php-fpm/blob/master/docs/Benchmark.md) and my blog.
 - **Maintenance**: [Maintenance.md](https://github.com/dwchiang/nginx-php-fpm/blob/master/docs/Maintenance.md)
 - **Supported architectures**: `amd64`, `arm64`.
 
