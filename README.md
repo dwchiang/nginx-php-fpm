@@ -16,7 +16,8 @@ You may also be interested in: [Workshops: Running Laravel on AWS ECS](https://g
 
 ## PHP 8.0
 
-- [`8.0.5-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-8.0.5-fpm-1.18.0-nginx-buster), `latest`
+- [`8.0.6-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-8.0.6-fpm-1.18.0-nginx-buster), `latest`
+- [`8.0.5-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-8.0.5-fpm-1.18.0-nginx-buster),
 - [`8.0.5-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-8.0.5-fpm-1.18.0-nginx-alpine3.12)
 - [`8.0.3-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-8.0.3-fpm-1.18.0-nginx-buster)
 - [`8.0.3-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-8.0.3-fpm-1.18.0-nginx-alpine3.12)

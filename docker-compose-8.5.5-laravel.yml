@@ -30,6 +30,7 @@ services:
 
   database:
     image: percona:5.7
+    # platform: linux/amd64
     networks:
       - net_db
     restart: always
