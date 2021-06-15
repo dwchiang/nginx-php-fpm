@@ -116,6 +116,7 @@ pushtodockerhub: version
 	docker buildx ls
 	docker buildx create --append --name buildnginxphpfpm
 	docker buildx use buildnginxphpfpm
+	docker buildx inspect --bootstrap
 
 ifeq ($(IS_LATEST),true)
 	echo 'IS_LATEST=true'

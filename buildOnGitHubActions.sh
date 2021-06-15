@@ -14,12 +14,12 @@ export VERSION_OS=buster
 ### ----------------------------------------------------------
 ### PHP 8.0
 
-export VERSION_PHP_FPM=8.0.6
-export VERSION_NGINX=1.18.0
-export VERSION_LARAVEL=8.5.5
-export IS_LATEST=true
+# export VERSION_PHP_FPM=8.0.6
+# export VERSION_NGINX=1.18.0
+# export VERSION_LARAVEL=8.5.5
+# export IS_LATEST=true
 
-make $BUILD_CMD
+# make $BUILD_CMD
 
 # export VERSION_PHP_FPM=8.0.5
 # export VERSION_NGINX=1.18.0
@@ -171,6 +171,13 @@ export VERSION_OS=alpine3.12
 
 ### ----------------------------------------------------------
 ### PHP 8.0
+
+export VERSION_PHP_FPM=8.0.6
+export VERSION_NGINX=1.18.0
+export VERSION_LARAVEL=8.5.5
+export IS_LATEST=false
+
+make $BUILD_CMD
 
 # export VERSION_PHP_FPM=8.0.5
 # export VERSION_NGINX=1.18.0
