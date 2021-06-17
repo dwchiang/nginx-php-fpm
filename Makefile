@@ -110,31 +110,24 @@ pushtodockerhub: version
 	@ echo '[] Building and pushing to Docker Hub ...'
 	# docker push $(NAME_IMAGE_REPO):$(VERSION)
 
+	cat ~/.docker/dhpwd.txt | docker login -u dwchiang --password-stdin
+
 	docker version
+	# docker buildx ls
+	# docker buildx rm buildnginxphpfpm
 	docker buildx ls
-	docker buildx rm buildnginxphpfpm
-	docker buildx ls
-	docker buildx create --append --name buildnginxphpfpm
+	docker buildx create --name buildnginxphpfpm
 	docker buildx use buildnginxphpfpm
 	docker buildx inspect --bootstrap
 
 ifeq ($(IS_LATEST),true)
 	echo 'IS_LATEST=true'
 
-	time docker buildx build \
-	--push \
-	--platform=linux/amd64,linux/arm64 \
-	-f $(VERSION_OS)/Dockerfile-$(VERSION) \
-	-t $(NAME_IMAGE_REPO):latest \
-	-t $(NAME_IMAGE_REPO):$(VERSION) .
+	docker buildx build --progress=plain --push --platform=linux/amd64,linux/arm64 -f $(VERSION_OS)/Dockerfile-$(VERSION) -t $(NAME_IMAGE_REPO):latest -t $(NAME_IMAGE_REPO):$(VERSION) .
 else
 	echo 'IS_LATEST=false or unknown'
 
-	time docker buildx build \
-	--push \
-	--platform=linux/amd64,linux/arm64 \
-	-f $(VERSION_OS)/Dockerfile-$(VERSION) \
-	-t $(NAME_IMAGE_REPO):$(VERSION) .
+	docker buildx build --progress=plain --push --platform=linux/amd64,linux/arm64 -f $(VERSION_OS)/Dockerfile-$(VERSION) -t $(NAME_IMAGE_REPO):$(VERSION) .
 endif
 
 	docker buildx stop
