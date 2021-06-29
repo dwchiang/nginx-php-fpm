@@ -16,7 +16,12 @@ You may also be interested in: [Workshops: Running Laravel on AWS ECS](https://g
 
 ## PHP 8.0
 
-- [`8.0.6-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-8.0.6-fpm-1.18.0-nginx-buster), `latest`
+- [`8.0.7-fpm-1.20.1-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-8.0.7-fpm-1.20.1-nginx-buster), `latest`
+- [`8.0.7-fpm-1.20.1-nginx-alpine3.13`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.13/Dockerfile-8.0.7-fpm-1.20.1-nginx-alpine3.13)
+- [`8.0.6-fpm-1.20.1-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-8.0.6-fpm-1.20.1-nginx-buster),
+- [`8.0.6-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-8.0.6-fpm-1.18.0-nginx-buster),
+- [`8.0.6-fpm-1.20.1-nginx-alpine3.13`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.13/Dockerfile-8.0.6-fpm-1.20.1-nginx-alpine3.13)
+- [`8.0.6-fpm-1.18.0-nginx-alpine3.13`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.13/Dockerfile-8.0.6-fpm-1.18.0-nginx-alpine3.13)
 - [`8.0.6-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-8.0.6-fpm-1.18.0-nginx-alpine3.12)
 - [`8.0.5-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-8.0.5-fpm-1.18.0-nginx-buster),
 - [`8.0.5-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-8.0.5-fpm-1.18.0-nginx-alpine3.12)
@@ -31,6 +36,8 @@ You may also be interested in: [Workshops: Running Laravel on AWS ECS](https://g
 
 ## PHP 7.4
 
+- [`7.4.20-fpm-1.20.1-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.4.20-fpm-1.20.1-nginx-buster)
+- [`7.4.20-fpm-1.20.1-nginx-alpine3.13`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.13/Dockerfile-7.4.20-fpm-1.20.1-nginx-alpine3.13)
 - [`7.4.19-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.4.19-fpm-1.18.0-nginx-buster)
 - [`7.4.19-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.4.19-fpm-1.18.0-nginx-alpine3.12)
 - [`7.4.18-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.4.18-fpm-1.18.0-nginx-buster)
@@ -52,6 +59,8 @@ You may also be interested in: [Workshops: Running Laravel on AWS ECS](https://g
 
 ## PHP 7.3
 
+- [`7.3.28-fpm-1.20.1-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.3.28-fpm-1.20.1-nginx-buster)
+- [`7.3.28-fpm-1.20.1-nginx-alpine3.13`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.13/Dockerfile-7.3.28-fpm-1.20.1-nginx-alpine3.13)
 - [`7.3.27-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.3.27-fpm-1.18.0-nginx-buster)
 - [`7.3.27-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-7.3.27-fpm-1.18.0-nginx-alpine3.12)
 - [`7.3.26-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.3.26-fpm-1.18.0-nginx-buster)
@@ -106,7 +115,13 @@ This Docker image is designed to run all kinds of PHP applications by decoupling
 - Part 1: Base image,
 - Part 2: PHP extension installation & PHP application and configuration.
 
-These two parts are separated Dockerfiles. This project repository will maintain the Part 1: base images, and having some reference examples for Part 2. You can find a Dockerfile of Part 2 as reference, and modify it for fitting into your project by adding some PHP extensions and maybe a few extra scripts.
+These two parts are separated Dockerfiles. 
+
+This project repository will maintain the Part 1 (base images).
+
+You can generate your own Part 2, but this project also includes some reference examples for Part 2. 
+
+You can find any Dockerfile of Part 2 in this project as reference, and modify it for fitting into your project by adding some PHP extensions and maybe a few extra scripts.
 
 ## Part 1: Base image
 
@@ -125,7 +140,7 @@ You can find the base image Dockerfiles in these folders:
 - `buster`
 - `alpine3.12`
 
-These base images will be uploaded to [dwchiang/nginx-php-fpm](https://hub.docker.com/repository/docker/dwchiang/nginx-php-fpm) on Docker Hub.
+These base images will be uploaded to [dwchiang/nginx-php-fpm](https://hub.docker.com/repository/docker/dwchiang/nginx-php-fpm) on Docker Hub, and also to [dwchiang/nginx-php-fpm](https://gallery.ecr.aws/dwchiang/nginx-php-fpm) on AWS ECR Public.
 
 ## Part 2: PHP extension installation & PHP application and configuration
 

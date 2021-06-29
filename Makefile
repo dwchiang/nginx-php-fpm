@@ -108,13 +108,22 @@ endif
 
 pushtodockerhub: version
 	@ echo '[] Building and pushing to Docker Hub ...'
-	# docker push $(NAME_IMAGE_REPO):$(VERSION)
+
+	@ echo '[] Building image on GitHub Actions and push to AWS ECR Public...'
+	aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
 
 	cat ~/.docker/dhpwd.txt | docker login -u dwchiang --password-stdin
 
 	docker version
-	# docker buildx ls
-	# docker buildx rm buildnginxphpfpm
+	docker buildx ls
+
+# ifeq ($(shell docker buildx ls | grep buildnginxphpfpm),0)
+# 	echo 'There is an existing buildnginxphpfpm builder...'
+# 	docker buildx rm
+# else
+# 	echo 'No existing buildnginxphpfpm builder. No need to docker buildx rm.'
+# endif
+
 	docker buildx ls
 	docker buildx create --name buildnginxphpfpm
 	docker buildx use buildnginxphpfpm
@@ -123,11 +132,11 @@ pushtodockerhub: version
 ifeq ($(IS_LATEST),true)
 	echo 'IS_LATEST=true'
 
-	docker buildx build --progress=plain --push --platform=linux/amd64,linux/arm64 -f $(VERSION_OS)/Dockerfile-$(VERSION) -t $(NAME_IMAGE_REPO):latest -t $(NAME_IMAGE_REPO):$(VERSION) .
+	docker buildx build --progress=plain --push --platform=linux/amd64,linux/arm64 -f $(VERSION_OS)/Dockerfile-$(VERSION) -t $(NAME_IMAGE_REPO):latest -t $(NAME_IMAGE_REPO):$(VERSION) -t $(TAG_REPO_URI_AWS):latest -t $(TAG_REPO_URI_AWS):$(VERSION) .
 else
 	echo 'IS_LATEST=false or unknown'
 
-	docker buildx build --progress=plain --push --platform=linux/amd64,linux/arm64 -f $(VERSION_OS)/Dockerfile-$(VERSION) -t $(NAME_IMAGE_REPO):$(VERSION) .
+	docker buildx build --progress=plain --push --platform=linux/amd64,linux/arm64 -f $(VERSION_OS)/Dockerfile-$(VERSION) -t $(NAME_IMAGE_REPO):$(VERSION) -t $(TAG_REPO_URI_AWS):$(VERSION) .
 endif
 
 	docker buildx stop

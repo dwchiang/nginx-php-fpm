@@ -6,6 +6,14 @@ echo "\n"
 date
 pwd
 
+if docker buildx ls | grep -q buildnginxphpfpm; then
+    echo 'found'
+    docker buildx rm buildnginxphpfpm
+    echo 'buildnginxphpfpm removed'
+else
+    echo 'not found'
+fi
+
 export BUILD_CMD=pushtodockerhub
 
 set -e
@@ -15,15 +23,16 @@ set -e
 ### and paste below.
 ### ----------------------------------------------------------
 
-export VERSION_OS=alpine3.12
+export VERSION_OS=buster
 
-export VERSION_PHP_FPM=8.0.6
-export VERSION_NGINX=1.18.0
+export VERSION_NGINX=1.20.1
+
+export VERSION_PHP_FPM=8.0.7
 export VERSION_LARAVEL=8.5.5
-export IS_LATEST=false
+export IS_LATEST=true
 
 make $BUILD_CMD
 
-echo "Good job!"
+echo "Good job!\n"
 date
 echo "-----------------------------------------------------------------------------------------------"

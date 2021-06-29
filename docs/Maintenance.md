@@ -4,14 +4,28 @@
 
 To see if there is any new version and changes in Dockerfile.
 
-## Check upstream: php
+## 1.1 Check upstream: php
 
 - [Check php-fpm version](https://github.com/docker-library/docs/blob/master/php/README.md#supported-tags-and-respective-dockerfile-links)
 - [Check php-fpm Dockerfile](https://github.com/docker-library/php)
 
-## Check upstream: nginx
+
+### alpine3.12 --> alpine3.13 (2021-0629)
+
+- Created `alpine3.13` folder
+
+## 1.2 Check upstream: nginx
 
 - [Check nginx Dockerfile](https://github.com/nginxinc/docker-nginx)
+
+### nginx 1.18.0 --> 1.20.1 (2021-0629)
+
+- Changed from `STOPSIGNAL SIGTERM` (1.18.0) to `STOPSIGNAL SIGQUIT` (1.20.1)
+- Added `buster/scripts/30-tune-worker-processes.sh`
+- Added `alpine3.13/scripts/30-tune-worker-processes.sh`
+
+
+---
 
 # Step 2: Build Base Image
 
@@ -23,17 +37,17 @@ Method: Execute below in shell:
 
 ```
 # Operation System version
-export VERSION_OS=alpine3.12
+export VERSION_OS=alpine3.13
 # or
 export VERSION_OS=buster
 
 # PHP FPM version
-export VERSION_PHP_FPM_EXISTING=8.0.0
-export VERSION_PHP_FPM=8.0.1
+export VERSION_PHP_FPM_EXISTING=8.0.6
+export VERSION_PHP_FPM=8.0.7
 
 # Nginx version
-export VERSION_NGINX_EXISTING=1.18.0
-export VERSION_NGINX=1.18.0
+export VERSION_NGINX_EXISTING=1.20.1
+export VERSION_NGINX=1.20.1
 
 # Laravel version
 export VERSION_LARAVEL=8.5.5
@@ -59,6 +73,9 @@ make version
 # Build
 make build
 ```
+
+
+---
 
 # Step 3: Test with Laravel
 
@@ -111,22 +128,27 @@ make test
 make down
 ```
 
+---
+
 # Step 4: Update Build Scripts
 
 - Type Golden (GitHubActions): `buildOnGitHubActions.sh` is using `buildongithubactions` as build command. 
-    - It's designed to run on **GitHub Actions** and push into Docker Hub.
+    - It's designed to run on **GitHub Actions** and push into Docker Hub and AWS ECR Public.
 
 ```
 vim buildOnGitHubActions.sh
 ```
 
-- Type Local: `build.sh` is using `pushtodockerhub` as build command. 
+- Type Local: `build.sh` and `buildOnLocal.sh` is using `pushtodockerhub` as build command. 
     - There is only one line different between these build files. I usually update `buildOnGitHubActions.sh` as the golden sample.
-    - It's designed to run on **local machine** and push into Docker Hub.
+    - It's designed to run on **local machine** and push into Docker Hub and AWS ECR Public.
 
 ```
 vim build.sh
 ```
 
+---
+
 # Step 5: Update README.md
 
+- Update Tags.
