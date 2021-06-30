@@ -40,31 +40,31 @@ export VERSION_NGINX=1.20.1
 ### ----------------------------------------------------------
 ### PHP 8.0
 
-export VERSION_PHP_FPM=8.0.7
-export VERSION_LARAVEL=8.5.5
-export IS_LATEST=true
-make $BUILD_CMD
+# export VERSION_PHP_FPM=8.0.7
+# export VERSION_LARAVEL=8.5.5
+# export IS_LATEST=true
+# make $BUILD_CMD
 
-export VERSION_PHP_FPM=8.0.6
-export VERSION_LARAVEL=8.5.5
-export IS_LATEST=false
-make $BUILD_CMD
+# export VERSION_PHP_FPM=8.0.6
+# export VERSION_LARAVEL=8.5.5
+# export IS_LATEST=false
+# make $BUILD_CMD
 
 ### ----------------------------------------------------------
 ### PHP 7.4
 
-export VERSION_PHP_FPM=7.4.20
-export VERSION_LARAVEL=8.5.5
-export IS_LATEST=false
-make $BUILD_CMD
+# export VERSION_PHP_FPM=7.4.20
+# export VERSION_LARAVEL=8.5.5
+# export IS_LATEST=false
+# make $BUILD_CMD
 
 ### ----------------------------------------------------------
 ### PHP 7.3
 
-export VERSION_PHP_FPM=7.3.28
-export VERSION_LARAVEL=8.5.5
-export IS_LATEST=false
-make $BUILD_CMD
+# export VERSION_PHP_FPM=7.3.28
+# export VERSION_LARAVEL=8.5.5
+# export IS_LATEST=false
+# make $BUILD_CMD
 
 ### ---------------------------------------------------------------
 ### Nginx 1.18.0
@@ -75,58 +75,58 @@ export VERSION_NGINX=1.18.0
 ### ----------------------------------------------------------
 ### PHP 8.0
 
-export VERSION_PHP_FPM=8.0.6
-export VERSION_LARAVEL=8.5.5
-export IS_LATEST=false
-make $BUILD_CMD
+# export VERSION_PHP_FPM=8.0.6
+# export VERSION_LARAVEL=8.5.5
+# export IS_LATEST=false
+# make $BUILD_CMD
 
-export VERSION_PHP_FPM=8.0.5
-export VERSION_LARAVEL=8.5.5
-export IS_LATEST=false
-make $BUILD_CMD
+# export VERSION_PHP_FPM=8.0.5
+# export VERSION_LARAVEL=8.5.5
+# export IS_LATEST=false
+# make $BUILD_CMD
 
-export VERSION_PHP_FPM=8.0.3
-export VERSION_LARAVEL=8.5.5
-export IS_LATEST=false
-make $BUILD_CMD
+# export VERSION_PHP_FPM=8.0.3
+# export VERSION_LARAVEL=8.5.5
+# export IS_LATEST=false
+# make $BUILD_CMD
 
-export VERSION_PHP_FPM=8.0.2
-export VERSION_LARAVEL=8.5.5
-export IS_LATEST=false
-make $BUILD_CMD
+# export VERSION_PHP_FPM=8.0.2
+# export VERSION_LARAVEL=8.5.5
+# export IS_LATEST=false
+# make $BUILD_CMD
 
-export VERSION_PHP_FPM=8.0.1
-export VERSION_LARAVEL=8.5.5
-export IS_LATEST=false
-make $BUILD_CMD
+# export VERSION_PHP_FPM=8.0.1
+# export VERSION_LARAVEL=8.5.5
+# export IS_LATEST=false
+# make $BUILD_CMD
 
-export VERSION_PHP_FPM=8.0.0
-export VERSION_LARAVEL=8.5.5
-export IS_LATEST=false
-make $BUILD_CMD
+# export VERSION_PHP_FPM=8.0.0
+# export VERSION_LARAVEL=8.5.5
+# export IS_LATEST=false
+# make $BUILD_CMD
 
 ### ----------------------------------------------------------
 ### PHP 7.4
 
-export VERSION_PHP_FPM=7.4.19
-export VERSION_LARAVEL=8.5.5
-export IS_LATEST=false
-make $BUILD_CMD
+# export VERSION_PHP_FPM=7.4.19
+# export VERSION_LARAVEL=8.5.5
+# export IS_LATEST=false
+# make $BUILD_CMD
 
-export VERSION_PHP_FPM=7.4.18
-export VERSION_LARAVEL=7.30.0
-export IS_LATEST=false
-make $BUILD_CMD
+# export VERSION_PHP_FPM=7.4.18
+# export VERSION_LARAVEL=7.30.0
+# export IS_LATEST=false
+# make $BUILD_CMD
 
-export VERSION_PHP_FPM=7.4.16
-export VERSION_LARAVEL=7.30.0
-export IS_LATEST=false
-make $BUILD_CMD
+# export VERSION_PHP_FPM=7.4.16
+# export VERSION_LARAVEL=7.30.0
+# export IS_LATEST=false
+# make $BUILD_CMD
 
-export VERSION_PHP_FPM=7.4.15
-export VERSION_LARAVEL=7.30.0
-export IS_LATEST=false
-make $BUILD_CMD
+# export VERSION_PHP_FPM=7.4.15
+# export VERSION_LARAVEL=7.30.0
+# export IS_LATEST=false
+# make $BUILD_CMD
 
 export VERSION_PHP_FPM=7.4.14
 export VERSION_LARAVEL=7.30.0
@@ -226,20 +226,6 @@ make $BUILD_CMD
 ### PHP 7.3
 
 export VERSION_PHP_FPM=7.3.28
-export VERSION_LARAVEL=8.5.5
-export IS_LATEST=false
-make $BUILD_CMD
-
-### ---------------------------------------------------------------
-### Nginx 1.18.0
-### ---------------------------------------------------------------
-
-export VERSION_NGINX=1.18.0
-
-### ----------------------------------------------------------
-### PHP 8.0
-
-export VERSION_PHP_FPM=8.0.6
 export VERSION_LARAVEL=8.5.5
 export IS_LATEST=false
 make $BUILD_CMD

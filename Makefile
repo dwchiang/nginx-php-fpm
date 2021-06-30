@@ -144,6 +144,8 @@ endif
 
 	docker images
 
+	sleep 120
+
 pushtoawsecr: build
 	@ echo '[] Login AWS ECR ...'
 	# Phased out AWS CLI v1
