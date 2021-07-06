@@ -21,6 +21,7 @@ TAG_REPO_URI_AWS := public.ecr.aws/n0b9n5m7/nginx-php-fpm
 
 VERSION_LARAVEL      := $(VERSION_LARAVEL)
 NAME_PROJECT_LARAVEL := laravel-$(VERSION_LARAVEL)
+NAME_PROJECT_LARAVEL_BITNAMI := laravel-bitnami-$(VERSION_LARAVEL)
 
 help:
 	@ echo 'Welcome to Makefile of dwchiang/nginx-php-fpm'
@@ -73,6 +74,17 @@ buildlaravel: version
 	-t $(NAME_PROJECT_LARAVEL):latest .
 
 	docker tag $(NAME_PROJECT_LARAVEL):latest $(NAME_PROJECT_LARAVEL):$(VERSION)
+
+	docker images
+
+buildlaravelbitnami: version
+	@ echo '[] Building laravel image...'
+
+	time docker build \
+	-f Dockerfile-$(VERSION_LARAVEL)-laravel-bitnami \
+	-t $(NAME_PROJECT_LARAVEL_BITNAMI):latest .
+
+	docker tag $(NAME_PROJECT_LARAVEL_BITNAMI):latest $(NAME_PROJECT_LARAVEL_BITNAMI):$(VERSION_LARAVEL)
 
 	docker images
 
@@ -177,6 +189,24 @@ test:
 	@ echo '  +----------------------------------------------------------+'
 	@ echo ''
 
+testbitnami:
+	docker-compose -f docker-compose-$(VERSION_LARAVEL)-laravel-bitnami.yml up -d database cache app
+
+	@ echo 'Ready!'
+	@ echo ''
+	@ echo 'MySQL: expose port:'
+	@ echo '  localhost:33062'
+	@ echo ''
+	@ echo 'Redis: expose port:'
+	@ echo '  localhost:63792'
+	@ echo ''
+	@ echo 'Open your browser and test at: '
+	@ echo '  +----------------------------------------------------------+'
+	@ echo '  |  http://localhost:8082/                                  |'
+	@ echo '  +----------------------------------------------------------+'
+	@ echo ''
+
+
 seedlaravel:
 	@ echo '[] Seeding in your laravel container... (please `make test` first)'
 
@@ -186,7 +216,15 @@ seedlaravel:
 down:
 	docker-compose -f docker-compose-$(VERSION_LARAVEL)-laravel.yml down
 
+downbitnami:
+	docker-compose -f docker-compose-$(VERSION_LARAVEL)-laravel-bitnami.yml down
+
 clean:
 	docker-compose -f docker-compose-$(VERSION_LARAVEL)-laravel.yml down -v --rmi local --remove-orphans
+	docker image prune -f
+	docker images
+
+cleanbitnami:
+	docker-compose -f docker-compose-$(VERSION_LARAVEL)-laravel-bitnami.yml down -v --rmi local --remove-orphans
 	docker image prune -f
 	docker images

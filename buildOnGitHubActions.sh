@@ -20,31 +20,31 @@ export VERSION_NGINX=1.20.1
 ### ----------------------------------------------------------
 ### PHP 8.0
 
-export VERSION_PHP_FPM=8.0.7
-export VERSION_LARAVEL=8.5.5
-export IS_LATEST=true
-make $BUILD_CMD
+# export VERSION_PHP_FPM=8.0.7
+# export VERSION_LARAVEL=8.5.5
+# export IS_LATEST=false
+# make $BUILD_CMD
 
-export VERSION_PHP_FPM=8.0.6
-export VERSION_LARAVEL=8.5.5
-export IS_LATEST=false
-make $BUILD_CMD
+# export VERSION_PHP_FPM=8.0.6
+# export VERSION_LARAVEL=8.5.5
+# export IS_LATEST=false
+# make $BUILD_CMD
 
 ### ----------------------------------------------------------
 ### PHP 7.4
 
-export VERSION_PHP_FPM=7.4.20
-export VERSION_LARAVEL=8.5.5
-export IS_LATEST=false
-make $BUILD_CMD
+# export VERSION_PHP_FPM=7.4.20
+# export VERSION_LARAVEL=8.5.5
+# export IS_LATEST=false
+# make $BUILD_CMD
 
 ### ----------------------------------------------------------
 ### PHP 7.3
 
-export VERSION_PHP_FPM=7.3.28
-export VERSION_LARAVEL=8.5.5
-export IS_LATEST=false
-make $BUILD_CMD
+# export VERSION_PHP_FPM=7.3.28
+# export VERSION_LARAVEL=8.5.5
+# export IS_LATEST=false
+# make $BUILD_CMD
 
 ### ---------------------------------------------------------------
 ### Nginx 1.18.0
@@ -184,31 +184,31 @@ export VERSION_NGINX=1.20.1
 ### ----------------------------------------------------------
 ### PHP 8.0
 
-export VERSION_PHP_FPM=8.0.7
-export VERSION_LARAVEL=8.5.5
-export IS_LATEST=false
-make $BUILD_CMD
+# export VERSION_PHP_FPM=8.0.7
+# export VERSION_LARAVEL=8.5.5
+# export IS_LATEST=false
+# make $BUILD_CMD
 
-export VERSION_PHP_FPM=8.0.6
-export VERSION_LARAVEL=8.5.5
-export IS_LATEST=false
-make $BUILD_CMD
+# export VERSION_PHP_FPM=8.0.6
+# export VERSION_LARAVEL=8.5.5
+# export IS_LATEST=false
+# make $BUILD_CMD
 
 ### ----------------------------------------------------------
 ### PHP 7.4
 
-export VERSION_PHP_FPM=7.4.20
-export VERSION_LARAVEL=8.5.5
-export IS_LATEST=false
-make $BUILD_CMD
+# export VERSION_PHP_FPM=7.4.20
+# export VERSION_LARAVEL=8.5.5
+# export IS_LATEST=false
+# make $BUILD_CMD
 
 ### ----------------------------------------------------------
 ### PHP 7.3
 
-export VERSION_PHP_FPM=7.3.28
-export VERSION_LARAVEL=8.5.5
-export IS_LATEST=false
-make $BUILD_CMD
+# export VERSION_PHP_FPM=7.3.28
+# export VERSION_LARAVEL=8.5.5
+# export IS_LATEST=false
+# make $BUILD_CMD
 
 # =============================================================================
 # =============================================================================

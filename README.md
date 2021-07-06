@@ -16,11 +16,13 @@ You may also be interested in: [Workshops: Running Laravel on AWS ECS](https://g
 
 ## PHP 8.0
 
-- [`8.0.7-fpm-1.20.1-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-8.0.7-fpm-1.20.1-nginx-buster), `latest`
+- [`8.0.8-fpm-1.20.1-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-8.0.8-fpm-1.20.1-nginx-buster), `latest`
+- [`8.0.8-fpm-1.20.1-nginx-alpine3.13`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.13/Dockerfile-8.0.8-fpm-1.20.1-nginx-alpine3.13)
+- [`8.0.7-fpm-1.20.1-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-8.0.7-fpm-1.20.1-nginx-buster),
 - [`8.0.7-fpm-1.20.1-nginx-alpine3.13`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.13/Dockerfile-8.0.7-fpm-1.20.1-nginx-alpine3.13)
 - [`8.0.6-fpm-1.20.1-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-8.0.6-fpm-1.20.1-nginx-buster),
-- [`8.0.6-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-8.0.6-fpm-1.18.0-nginx-buster),
 - [`8.0.6-fpm-1.20.1-nginx-alpine3.13`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.13/Dockerfile-8.0.6-fpm-1.20.1-nginx-alpine3.13)
+- [`8.0.6-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-8.0.6-fpm-1.18.0-nginx-buster),
 - [`8.0.6-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-8.0.6-fpm-1.18.0-nginx-alpine3.12)
 - [`8.0.5-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-8.0.5-fpm-1.18.0-nginx-buster),
 - [`8.0.5-fpm-1.18.0-nginx-alpine3.12`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.12/Dockerfile-8.0.5-fpm-1.18.0-nginx-alpine3.12)
@@ -35,6 +37,8 @@ You may also be interested in: [Workshops: Running Laravel on AWS ECS](https://g
 
 ## PHP 7.4
 
+- [`7.4.21-fpm-1.20.1-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.4.21-fpm-1.20.1-nginx-buster)
+- [`7.4.21-fpm-1.20.1-nginx-alpine3.13`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.13/Dockerfile-7.4.21-fpm-1.20.1-nginx-alpine3.13)
 - [`7.4.20-fpm-1.20.1-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.4.20-fpm-1.20.1-nginx-buster)
 - [`7.4.20-fpm-1.20.1-nginx-alpine3.13`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.13/Dockerfile-7.4.20-fpm-1.20.1-nginx-alpine3.13)
 - [`7.4.19-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.4.19-fpm-1.18.0-nginx-buster)
@@ -58,6 +62,8 @@ You may also be interested in: [Workshops: Running Laravel on AWS ECS](https://g
 
 ## PHP 7.3
 
+- [`7.3.29-fpm-1.20.1-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.3.29-fpm-1.20.1-nginx-buster)
+- [`7.3.29-fpm-1.20.1-nginx-alpine3.13`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.13/Dockerfile-7.3.29-fpm-1.20.1-nginx-alpine3.13)
 - [`7.3.28-fpm-1.20.1-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.3.28-fpm-1.20.1-nginx-buster)
 - [`7.3.28-fpm-1.20.1-nginx-alpine3.13`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.13/Dockerfile-7.3.28-fpm-1.20.1-nginx-alpine3.13)
 - [`7.3.27-fpm-1.18.0-nginx-buster`](https://github.com/dwchiang/nginx-php-fpm/blob/master/buster/Dockerfile-7.3.27-fpm-1.18.0-nginx-buster)
@@ -81,7 +87,7 @@ You may also be interested in: [Workshops: Running Laravel on AWS ECS](https://g
 - **Where to file issues**: [https://github.com/dwchiang/nginx-php-fpm/issues](https://github.com/dwchiang/nginx-php-fpm/issues)
 - **Source**: [https://github.com/dwchiang/nginx-php-fpm](https://github.com/dwchiang/nginx-php-fpm)
 - **Registry**: [AWS ECR Public](https://gallery.ecr.aws/dwchiang/nginx-php-fpm), and [Docker Hub](https://hub.docker.com/r/dwchiang/nginx-php-fpm).
-- **Benchmark**: [Benchmark.md](https://github.com/dwchiang/nginx-php-fpm/blob/master/docs/Benchmark.md) and my blog.
+- **Benchmark**: [Benchmark.md](https://github.com/dwchiang/nginx-php-fpm/blob/master/docs/Benchmark.md) and my [blog](https://www.ernestchiang.com/zh/posts/2021/2021-04-17-benchmark-nginx-php-fpm-between-buster-alpine/).
 - **Maintenance**: [Maintenance.md](https://github.com/dwchiang/nginx-php-fpm/blob/master/docs/Maintenance.md)
 - **Supported architectures**: `amd64`, `arm64`.
 
@@ -151,6 +157,9 @@ You can get into your container and check the included PHP modules by using `php
 
 You can find these Dockerfiles in the root folder of this repository [dwchiang/nginx-php-fpm](https://github.com/dwchiang/nginx-php-fpm) on GitHub:
 
+- `Dockerfile-8.5.20-laravel-buster`: Running Laravel 8.5.20 on Buster (Debian 10)
+- `Dockerfile-8.5.20-laravel-alpine3.13`: Running Laravel 8.5.20 on Alpine 3.13
+- `Dockerfile-8.5.20-laravel-bitnami`: Running Laravel 8.5.20 on bitnami/laravel base image (for [comparison](https://www.ernestchiang.com/zh/posts/2021/2021-04-17-benchmark-nginx-php-fpm-between-buster-alpine/))
 - `Dockerfile-8.5.5-laravel-buster`: Running Laravel 8.5.5 on Buster (Debian 10)
 - `Dockerfile-8.5.5-laravel-alpine3.12`: Running Laravel 8.5.5 on Alpine 3.12
 - `Dockerfile-7.30.0-laravel-buster`: Running Laravel 7.30.0 on Buster (Debian 10)

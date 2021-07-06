@@ -1,0 +1,60 @@
+version: '3.8'
+
+networks:
+  net_app:
+    driver: bridge
+  net_db:
+    driver: bridge
+
+services:
+  app:
+    image: laravel-bitnami-8.5.20:latest
+    depends_on:
+      - database
+      - cache
+    networks:
+      - net_app
+      - net_db
+    ports:
+      - "8082:3000"
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+# enable volumes for development php source codes.
+# disable volumes for confirming content inside the container based on Dockerfile.
+    # volumes:
+    #   - ./laravel-bitnami-8.5.20:/var/www/html      
+
+  database:
+    image: percona:5.7
+    # platform: linux/amd64
+    networks:
+      - net_db
+    restart: always
+    healthcheck:
+      test: mysqlshow -u $$MYSQL_USER -p$$MYSQL_PASSWORD
+      interval: 3s
+      retries: 10
+    volumes:
+      - db_data-8.5.20-laravel-bitnami:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=laravel
+      - MYSQL_USER=laravel
+      - MYSQL_PASSWORD=secret
+      - MYSQL_ROOT_PASSWORD=secret
+    ports:
+      - "33062:3306"
+
+  cache:
+    image: redis:6.0
+    networks:
+      - net_db
+    restart: always
+    ports:
+      - "63792:6379"
+
+volumes:
+  db_data-8.5.20-laravel-bitnami:

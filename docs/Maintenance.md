@@ -50,7 +50,7 @@ export VERSION_NGINX_EXISTING=1.20.1
 export VERSION_NGINX=1.20.1
 
 # Laravel version
-export VERSION_LARAVEL=8.5.5
+export VERSION_LARAVEL=8.5.20
 
 # Dockerfile filenames
 export PFN_DOCKERFILENAME_EXISTING=${VERSION_OS}/Dockerfile-${VERSION_PHP_FPM_EXISTING}-fpm-${VERSION_NGINX_EXISTING}-nginx-${VERSION_OS}
@@ -86,6 +86,7 @@ make build
     - `7.25.0` to test with php `7.4.x`, `7.3.x`. In the beginning phase of this project.
     - `7.30.0` to test with php `8.0.x`, `7.4.x`, `7.3.x`. Since 2020-12-20.
     - `8.5.5` to test with php `8.0.x`, `7.4.x`, `7.3.x`. Since 2020-12-20.
+    - `8.5.20` to test with php `8.0.x`, `7.4.x`, `7.3.x`. Since 2021-07-06.
 
 Format:
 
@@ -101,6 +102,8 @@ composer create-project --prefer-dist laravel/laravel:7.25.0 laravel-7.25.0
 composer create-project --prefer-dist laravel/laravel:7.30.0 laravel-7.30.0
 
 composer create-project --prefer-dist laravel/laravel:8.5.5 laravel-8.5.5
+
+composer create-project --prefer-dist laravel/laravel:8.5.20 laravel-8.5.20
 ```
 
 ## 3.2 Build docker image with this Laravel source folder
@@ -111,9 +114,9 @@ export VERSION_OS=alpine3.12
 # or
 export VERSION_OS=buster
 
-export VERSION_PHP_FPM=8.0.1
-export VERSION_NGINX=1.18.0
-export VERSION_LARAVEL=8.5.5
+export VERSION_PHP_FPM=8.0.8
+export VERSION_NGINX=1.20.1
+export VERSION_LARAVEL=8.5.20
 
 # Double check version info
 make version
@@ -132,20 +135,29 @@ make down
 
 # Step 4: Update Build Scripts
 
-- Type Golden (GitHubActions): `buildOnGitHubActions.sh` is using `buildongithubactions` as build command. 
+
+- Type **Golden**: `buildOnLocal.sh` is using `pushtodockerhub` as build command. 
+    - There is only one line different between these build files. I usually update `buildOnLocal.sh` as the golden sample.
+    - It's designed to run on **local machine** and push into Docker Hub and AWS ECR Public.
+
+```
+vim buildOnLocal.sh
+```
+
+- Type Local: `build.sh` is using `pushtodockerhub` as build command, but usually used to build one single image.
+    - It's designed to run on **local machine** and push into Docker Hub and AWS ECR Public.
+
+```
+vim build.sh
+```
+
+- Type GitHubActions: `buildOnGitHubActions.sh` is using `buildongithubactions` as build command. 
     - It's designed to run on **GitHub Actions** and push into Docker Hub and AWS ECR Public.
 
 ```
 vim buildOnGitHubActions.sh
 ```
 
-- Type Local: `build.sh` and `buildOnLocal.sh` is using `pushtodockerhub` as build command. 
-    - There is only one line different between these build files. I usually update `buildOnGitHubActions.sh` as the golden sample.
-    - It's designed to run on **local machine** and push into Docker Hub and AWS ECR Public.
-
-```
-vim build.sh
-```
 
 ---
 
