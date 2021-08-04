@@ -30,8 +30,8 @@ ab -t 60 -c 1 http://localhost:8082/
 
 Please refer to Ernest's blog post:
 
-- (zh) [Laravel PHP8/PHP7 Debian/Alpine 容器效能比較](https://www.ernestchiang.com/zh/posts/2021/2021-04-17-benchmark-nginx-php-fpm-between-buster-alpine/)
-- (en) on-going
+- (en) [Laravel PHP8/PHP7 Debian/Alpine Container Performance Comparison](https://www.ernestchiang.com/en/posts/2021/benchmark-nginx-php-fpm-between-buster-alpine/)
+- (zh) [Laravel PHP8/PHP7 Debian/Alpine 容器效能比較](https://www.ernestchiang.com/zh/posts/2021/benchmark-nginx-php-fpm-between-buster-alpine/)
 
 # Comparison
 
