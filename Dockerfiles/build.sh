@@ -22,7 +22,6 @@ set -e
 
 
 
-
 export VERSION_OS=buster
 export VERSION_NGINX=1.21.1
 export VERSION_PHP=8.0.9

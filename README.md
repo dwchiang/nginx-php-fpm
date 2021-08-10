@@ -133,15 +133,13 @@ You can get into your container and check the included PHP modules by using `php
 
 You can find these Dockerfiles in the `Testings` folder of this repository [dwchiang/nginx-php-fpm](https://github.com/dwchiang/nginx-php-fpm) on GitHub:
 
-- `Dockerfile-8.5.20-laravel-buster`: Running Laravel 8.5.20 on Buster (Debian 10)
-- `Dockerfile-8.5.20-laravel-alpine3.13`: Running Laravel 8.5.20 on Alpine 3.13
-- `Dockerfile-8.5.20-laravel-bitnami`: Running Laravel 8.5.20 on bitnami/laravel base image (for [comparison](https://www.ernestchiang.com/en/posts/2021/benchmark-nginx-php-fpm-between-buster-alpine/))
-- `Dockerfile-8.5.5-laravel-buster`: Running Laravel 8.5.5 on Buster (Debian 10)
-- `Dockerfile-8.5.5-laravel-alpine3.12`: Running Laravel 8.5.5 on Alpine 3.12
-- `Dockerfile-7.30.0-laravel-buster`: Running Laravel 7.30.0 on Buster (Debian 10)
-- `Dockerfile-7.30.0-laravel-alpine3.12`: Running Laravel 7.30.0 on Alpine 3.12
-- `Dockerfile-7.25.0-laravel-buster`: Running Laravel 7.25.0 on Buster (Debian 10)
-- `Dockerfile-7.25.0-laravel-alpine3.12`: Running Laravel 7.25.0 on Alpine 3.12
+- `Dockerfile-8.5.23-laravel-buster`: Running Laravel 8.5.23 on Buster (Debian 10)
+- `Dockerfile-8.5.23-laravel-alpine3.14`: Running Laravel 8.5.23 on Alpine 3.14
+- `Dockerfile-8.5.23-laravel-alpine3.13`: Running Laravel 8.5.23 on Alpine 3.13
+
+- `Dockerfile-8.5.23-phpinfo-buster`: Running phpinfo() on Buster (Debian 10)
+- `Dockerfile-8.5.23-phpinfo-alpine3.14`: Running phpinfo() on Alpine 3.14
+- `Dockerfile-8.5.23-phpinfo-alpine3.13`: Running phpinfo() on Alpine 3.13
 
 This project will **not** upload the images of Part 2 on Docker Hub. 
 
