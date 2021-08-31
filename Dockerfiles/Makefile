@@ -102,7 +102,7 @@ endif
 
 	docker images
 
-	sleep 120
+	sleep 5
 
 
 ### not yet review below this line -----------------------------------------------------
