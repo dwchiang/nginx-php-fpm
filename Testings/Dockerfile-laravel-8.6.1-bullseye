@@ -1,4 +1,4 @@
-ARG VERSION=8.0.8-fpm-buster-nginx-1.21.1
+ARG VERSION=8.0.10-fpm-bullseye-nginx-1.21.1
 FROM dwchiang/nginx-php-fpm:${VERSION}
 
 LABEL maintainer="Ernest Chiang <me@ernestchiang.com>"

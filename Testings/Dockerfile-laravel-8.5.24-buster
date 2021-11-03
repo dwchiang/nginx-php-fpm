@@ -73,6 +73,8 @@ RUN set -x && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /usr/share/nginx/html/*
 
+COPY conf/www.conf /usr/local/etc/php-fpm.d/www.conf
+
 ### ----------------------------------------------------------
 ### Load our app
 ### ----------------------------------------------------------
@@ -83,9 +85,9 @@ COPY app/laravel-8 /var/www/html/
 
 RUN set -x && \
     # We don't need hirak/prestissimo since composer 2
-    if [ $(echo "${VERSION_PHP_MINOR} <= 7.3" | bc) -eq 1 ]; then \
-        composer global require hirak/prestissimo ; \
-    fi && \
+    # if [ $(echo "${VERSION_PHP_MINOR} <= 7" | bc) -eq 1 ]; then \
+    #     composer global require hirak/prestissimo ; \
+    # fi && \
     if [ -f "/var/www/html/composer.lock" ]; then \
         if [ "${APP_ENV}" == "development" ] || [ "${APP_ENV}" == "dev" || "${APP_ENV}" == "staging" ] || [ "${APP_ENV}" == "stage" ]; then \
             composer install --working-dir=/var/www/html ; \

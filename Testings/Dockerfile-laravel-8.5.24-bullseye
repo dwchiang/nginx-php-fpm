@@ -1,4 +1,4 @@
-ARG VERSION=8.0.8-fpm-buster-nginx-1.21.1
+ARG VERSION=8.0.10-fpm-bullseye-nginx-1.21.1
 FROM dwchiang/nginx-php-fpm:${VERSION}
 
 LABEL maintainer="Ernest Chiang <me@ernestchiang.com>"
@@ -77,8 +77,8 @@ RUN set -x && \
 ### Load our app
 ### ----------------------------------------------------------
 
-COPY framework/laravel-8.6.1/public /usr/share/nginx/html
-COPY framework/laravel-8.6.1 /var/www/html
+COPY framework/laravel-8.5.24/public /usr/share/nginx/html
+COPY framework/laravel-8.5.24 /var/www/html
 COPY app/laravel-8 /var/www/html/
 
 RUN set -x && \
