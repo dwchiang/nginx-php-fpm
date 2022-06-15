@@ -17,13 +17,14 @@ else
 fi
 
 export BUILD_CMD=release
+# export BUILD_CMD=releaseDockerHub
 
 set -e
 
 
 
-export VERSION_OS=buster
-export VERSION_NGINX=1.21.1
-export VERSION_PHP=8.0.12
+export VERSION_OS=bullseye
+export VERSION_NGINX=1.21.6
+export VERSION_PHP=8.1.7
 export IS_LATEST=true
 make $BUILD_CMD

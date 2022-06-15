@@ -102,8 +102,39 @@ endif
 
 	docker images
 
-	sleep 5
+	sleep 15
 
+releaseDockerHub: version
+	@ echo '[] Building images and push to Docker Hub ...'
+
+	@ echo '[] Login Docker Hub...'
+	cat ~/.docker/dhpwd.txt | docker login -u dwchiang --password-stdin
+
+	@ echo '[] Check Docker environment...'
+	docker version
+	docker buildx ls
+
+	docker buildx ls
+	docker buildx create --name buildnginxphpfpm
+	docker buildx use buildnginxphpfpm
+	docker buildx inspect --bootstrap
+
+ifeq ($(IS_LATEST),true)
+	echo 'IS_LATEST=true'
+
+	docker buildx build --progress=plain --push --platform=linux/amd64,linux/arm64 -f $(VERSION_OS)/Dockerfile-$(VERSION) -t $(NAME_IMAGE_REPO):latest -t $(NAME_IMAGE_REPO):$(VERSION) .
+else
+	echo 'IS_LATEST=false or unknown'
+
+	docker buildx build --progress=plain --push --platform=linux/amd64,linux/arm64 -f $(VERSION_OS)/Dockerfile-$(VERSION) -t $(NAME_IMAGE_REPO):$(VERSION) .
+endif
+
+	docker buildx stop
+	docker buildx rm buildnginxphpfpm
+
+	docker images
+
+	sleep 15
 
 ### not yet review below this line -----------------------------------------------------
 
@@ -207,3 +238,12 @@ cleanbitnami:
 	docker-compose -f docker-compose-$(VERSION_LARAVEL)-laravel-bitnami.yml down -v --rmi local --remove-orphans
 	docker image prune -f
 	docker images
+
+cleanEcrUntagged:
+#@ echo '[] Login AWS ECR Public...'
+#aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
+
+	$(eval IMAGES_TO_DELETE := $(shell aws ecr-public list-images --region us-east-1 --repository-name '$(NAME_PROJECT)' --filter "tagStatus=UNTAGGED" --query 'imageIds[*]' --output json))
+	echo $(IMAGES_TO_DELETE)
+#aws ecr-public batch-delete-image --region us-east-1 --repository-name $(NAME_PROJECT) --image-ids "$(IMAGES_TO_DELETE)" || true
+	

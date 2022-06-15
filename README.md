@@ -20,9 +20,9 @@ Brought to you by Ernest Chiang, an [AWS Community Hero](https://aws.amazon.com/
 # Quick reference
 
 - **Supported architectures**: `amd64`, `arm64`.
-- **Supported PHP versions**: `8.1`, `8.0`, `7.4`, `7.3`
-- **Supported OS versions**: Across `buster`, `alpine3.14`, `alpine3.13`. (Based on PHP official image tags and Nginx official image OS version.)
-- **Supported Nginx versions**: `1.21.1`, `1.20.1`
+- **Supported PHP versions**: `8.2`, `8.1`, `8.0`, `7.4`, `7.3`
+- **Supported OS versions**: Across `bullseye`, `buster`, `alpine3.16`, `alpine3.15`, `alpine3.14`, `alpine3.13`. (Based on PHP official image tags and Nginx official image OS version.)
+- **Supported Nginx versions**: `1.22.0`, `1.21.6`, `1.21.5`, `1.21.4`, `1.21.3`, `1.21.2`, `1.21.1`, `1.20.2`, `1.20.1`
 - **Maintained by**: [Ernest Chiang](https://www.ernestchiang.com/)
 - **Where to file issues**: [https://github.com/dwchiang/nginx-php-fpm/issues](https://github.com/dwchiang/nginx-php-fpm/issues)
 - **Source**: [https://github.com/dwchiang/nginx-php-fpm](https://github.com/dwchiang/nginx-php-fpm)
