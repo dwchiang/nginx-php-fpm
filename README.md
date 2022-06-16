@@ -29,6 +29,8 @@ Brought to you by Ernest Chiang, an [AWS Community Hero](https://aws.amazon.com/
 - **Registry**: [AWS ECR Public](https://gallery.ecr.aws/dwchiang/nginx-php-fpm), and [Docker Hub](https://hub.docker.com/r/dwchiang/nginx-php-fpm).
 - **Benchmark**: [Benchmark.md](https://github.com/dwchiang/nginx-php-fpm/blob/master/docs/Benchmark.md) and my [blog](https://www.ernestchiang.com/en/posts/2021/benchmark-nginx-php-fpm-between-buster-alpine/).
 - **Maintenance**: [Maintenance.md](https://github.com/dwchiang/nginx-php-fpm/blob/master/docs/Maintenance.md)
+- **Support this project:**
+    - [![Buy me a coffee](https://www.ernestchiang.com/img/logo/bmc_285x80.png)](https://www.buymeacoffee.com/ernestchiang)
 
 ---
 
