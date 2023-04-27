@@ -8,9 +8,9 @@ A Docker image (Dockerfile) that merged nginx & php-fpm into one bite on Debian/
 - Amazon ECS, 
 - amd64/arm64. 
 
-Brought to you by Ernest Chiang, an [AWS Community Hero](https://aws.amazon.com/developer/community/heroes/ernest-chiang/).
+Brought to you by Ernest Chiang (an [AWS Community Hero](https://aws.amazon.com/developer/community/heroes/ernest-chiang/)), and Irvine Chang.
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/dwchiang/nginx-php-fpm/Build) ![Docker Pulls](https://img.shields.io/docker/pulls/dwchiang/nginx-php-fpm)
+![Docker Pulls](https://img.shields.io/docker/pulls/dwchiang/nginx-php-fpm)
 
 - Designed for running Laravel framework and all other PHP-based application modernization on cloud native.
 - Performance analysis report: [Laravel PHP8/PHP7 Debian/Alpine Container Performance Comparison](https://www.ernestchiang.com/en/posts/2021/benchmark-nginx-php-fpm-between-buster-alpine/)
@@ -20,16 +20,17 @@ Brought to you by Ernest Chiang, an [AWS Community Hero](https://aws.amazon.com/
 # Quick reference
 
 - **Supported architectures**: `amd64`, `arm64`.
-- **Supported PHP versions**: `8.2`, `8.1`, `8.0`, `7.4`, `7.3`
-- **Supported OS versions**: Across `bullseye`, `buster`, `alpine3.16`, `alpine3.15`, `alpine3.14`, `alpine3.13`. (Based on PHP official image tags and Nginx official image OS version.)
-- **Supported Nginx versions**: `1.22.0`, `1.21.6`, `1.20.2`
-- **Maintained by**: [Ernest Chiang](https://www.ernestchiang.com/)
+- **Supported PHP versions**: `8.2`, `8.1`, `8.0`, `7.4`, `7.3`, `7.2`
+- **Supported OS versions**: Across `bullseye`, `buster`, `alpine3.17`, `alpine3.16`, `alpine3.15`, `alpine3.14`, `alpine3.13`. (Based on PHP official image tags and Nginx official image OS version.)
+- **Supported Nginx versions**: `1.24.0`, `1.22.1`, `1.21.6`, `1.21.1`, `1.20.2`, `1.20.1`
+- **Maintained by**: [Ernest Chiang](https://www.ernestchiang.com/), Irvine Chang
 - **Where to file issues**: [https://github.com/dwchiang/nginx-php-fpm/issues](https://github.com/dwchiang/nginx-php-fpm/issues)
 - **Source**: [https://github.com/dwchiang/nginx-php-fpm](https://github.com/dwchiang/nginx-php-fpm)
 - **Registry**: [AWS ECR Public](https://gallery.ecr.aws/dwchiang/nginx-php-fpm), and [Docker Hub](https://hub.docker.com/r/dwchiang/nginx-php-fpm).
 - **Benchmark**: [Benchmark.md](https://github.com/dwchiang/nginx-php-fpm/blob/master/docs/Benchmark.md) and my [blog](https://www.ernestchiang.com/en/posts/2021/benchmark-nginx-php-fpm-between-buster-alpine/).
 - **Maintenance**: [Maintenance.md](https://github.com/dwchiang/nginx-php-fpm/blob/master/docs/Maintenance.md)
 - **Support this project:**
+    - Give a star ⭐ 
     - [![Buy me a coffee](https://www.ernestchiang.com/img/logo/bmc_285x80.png)](https://www.buymeacoffee.com/ernestchiang)
 
 ---
@@ -37,6 +38,7 @@ Brought to you by Ernest Chiang, an [AWS Community Hero](https://aws.amazon.com/
 # Supported Image Tags
 
 - **Full tag list** (included older tags): [https://github.com/dwchiang/nginx-php-fpm/blob/master/docs/Tags.md](https://github.com/dwchiang/nginx-php-fpm/blob/master/docs/Tags.md)
+- Starting from 2023-04-27, the project has decided to maintain the latest version of each PHP branch due to the increasing mixed results observed when combining different versions of PHP, OS, and Nginx.
 - Changed tag naming rule on 2021-07-25. More details please refer to this [docs](https://github.com/dwchiang/nginx-php-fpm/blob/master/docs/Tags.md).
 
 ---

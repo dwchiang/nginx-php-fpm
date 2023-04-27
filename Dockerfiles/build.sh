@@ -2,6 +2,8 @@
 # vim:sw=4:ts=4:et
 
 echo "-----------------------------------------------------------------------------------------------"
+echo "Hihi starts releasing"
+echo "-----------------------------------------------------------------------------------------------"
 echo "\n"
 date
 pwd
@@ -24,7 +26,7 @@ set -e
 
 
 export VERSION_OS=bullseye
-export VERSION_NGINX=1.21.6
-export VERSION_PHP=8.1.7
+export VERSION_NGINX=1.24.0
+export VERSION_PHP=8.2.5
 export IS_LATEST=true
 make $BUILD_CMD

@@ -76,7 +76,7 @@ release: version
 	aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
 
 	@ echo '[] Login Docker Hub...'
-	cat ~/.docker/dhpwd.txt | docker login -u dwchiang --password-stdin
+	cat ~/.docker/dhtoken.txt | docker login -u dwchiang --password-stdin
 
 	@ echo '[] Check Docker environment...'
 	docker version
@@ -108,7 +108,7 @@ releaseDockerHub: version
 	@ echo '[] Building images and push to Docker Hub ...'
 
 	@ echo '[] Login Docker Hub...'
-	cat ~/.docker/dhpwd.txt | docker login -u dwchiang --password-stdin
+	cat ~/.docker/dhtoken.txt | docker login -u dwchiang --password-stdin
 
 	@ echo '[] Check Docker environment...'
 	docker version
