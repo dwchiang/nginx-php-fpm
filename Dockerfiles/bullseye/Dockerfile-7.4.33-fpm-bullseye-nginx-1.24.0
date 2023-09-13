@@ -11,6 +11,10 @@ ARG VERSION_OS
 ENV VERSION_OS=${VERSION_OS}
 
 ### ----------------------------------------------------------
+### Project Homepage = https://github.com/dwchiang/nginx-php-fpm
+### ----------------------------------------------------------
+### Support this project = https://www.buymeacoffee.com/ernestchiang
+### ----------------------------------------------------------
 ### Part 1 of Nginx Dockerfile source https://hub.docker.com/_/nginx/
 ### https://github.com/nginxinc/docker-nginx/blob/1a8d87b69760693a8e33cd8a9e0c2e5f0e8b0e3c/stable/debian/Dockerfile
 ### ----------------------------------------------------------

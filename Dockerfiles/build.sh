@@ -23,10 +23,3 @@ export BUILD_CMD=release
 
 set -e
 
-
-
-export VERSION_OS=bullseye
-export VERSION_NGINX=1.24.0
-export VERSION_PHP=8.2.5
-export IS_LATEST=true
-make $BUILD_CMD

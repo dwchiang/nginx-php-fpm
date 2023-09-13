@@ -20,9 +20,9 @@ Brought to you by Ernest Chiang (an [AWS Community Hero](https://aws.amazon.com/
 # Quick reference
 
 - **Supported architectures**: `amd64`, `arm64`.
-- **Supported PHP versions**: `8.2`, `8.1`, `8.0`, `7.4`, `7.3`, `7.2`
-- **Supported OS versions**: Across `bullseye`, `buster`, `alpine3.17`, `alpine3.16`, `alpine3.15`, `alpine3.14`, `alpine3.13`. (Based on PHP official image tags and Nginx official image OS version.)
-- **Supported Nginx versions**: `1.24.0`, `1.22.1`, `1.21.6`, `1.21.1`, `1.20.2`, `1.20.1`
+- **Supported PHP versions**: `8.3`, `8.2`, `8.1`, `8.0`, `7.4`, `7.3`, `7.2`
+- **Supported OS versions**: Across `bookworm`, `bullseye`, `buster`, `alpine3.18`, `alpine3.17`, `alpine3.16`, `alpine3.15`, `alpine3.14`, `alpine3.13`. (Based on PHP official image tags and Nginx official image OS version.)
+- **Supported Nginx versions**: `1.25.2`, `1.24.0`, `1.22.1`, `1.21.6`, `1.21.1`, `1.20.2`, `1.20.1`
 - **Maintained by**: [Ernest Chiang](https://www.ernestchiang.com/), Irvine Chang
 - **Where to file issues**: [https://github.com/dwchiang/nginx-php-fpm/issues](https://github.com/dwchiang/nginx-php-fpm/issues)
 - **Source**: [https://github.com/dwchiang/nginx-php-fpm](https://github.com/dwchiang/nginx-php-fpm)
@@ -38,6 +38,7 @@ Brought to you by Ernest Chiang (an [AWS Community Hero](https://aws.amazon.com/
 # Supported Image Tags
 
 - **Full tag list** (included older tags): [https://github.com/dwchiang/nginx-php-fpm/blob/master/docs/Tags.md](https://github.com/dwchiang/nginx-php-fpm/blob/master/docs/Tags.md)
+- Starting from 2023-09-08, the project will build the last 5 PHP version of the same combination of PHP, OS and Nginx at the build moment to reduce the storage spending on AWS ECR Public.
 - Starting from 2023-04-27, the project has decided to maintain the latest version of each PHP branch due to the increasing mixed results observed when combining different versions of PHP, OS, and Nginx.
 - Changed tag naming rule on 2021-07-25. More details please refer to this [docs](https://github.com/dwchiang/nginx-php-fpm/blob/master/docs/Tags.md).
 
