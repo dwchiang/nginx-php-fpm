@@ -5,15 +5,28 @@ A Docker image (Dockerfile) that merged nginx & php-fpm into one bite on Debian/
 - modern applications, 
 - cloud native designs, 
 - AWS Fargate, 
-- Amazon ECS, 
-- amd64/arm64. 
+- Amazon ECS/EKS, 
+- amd64/arm64 (e.g. AWS Graviton). 
 
-Brought to you by Ernest Chiang (an [AWS Community Hero](https://aws.amazon.com/developer/community/heroes/ernest-chiang/)), and Irvine Chang.
+Brought to you by Ernest Chiang (an [AWS Community Hero](https://www.ernestchiang.com/en/about/)), and Irvine Chang.
 
-![Docker Pulls](https://img.shields.io/docker/pulls/dwchiang/nginx-php-fpm)
+---
+
+Latest Semver | ![Docker Image Version (latest semver)](https://img.shields.io/docker/v/dwchiang/nginx-php-fpm)
+ | License | ![GitHub](https://img.shields.io/github/license/dwchiang/nginx-php-fpm)
+ | Docker | ![Docker Pulls](https://img.shields.io/docker/pulls/dwchiang/nginx-php-fpm)
+ | ![Docker Stars](https://img.shields.io/docker/stars/dwchiang/nginx-php-fpm)
+ | GitHub | ![GitHub Repo stars](https://img.shields.io/github/stars/dwchiang/nginx-php-fpm)
+ | ![GitHub forks](https://img.shields.io/github/forks/dwchiang/nginx-php-fpm)
+
+---
 
 - Designed for running Laravel framework and all other PHP-based application modernization on cloud native.
-- Performance analysis report: [Laravel PHP8/PHP7 Debian/Alpine Container Performance Comparison](https://www.ernestchiang.com/en/posts/2021/benchmark-nginx-php-fpm-between-buster-alpine/)
+- Performance analysis report: 
+  - [Laravel PHP8/PHP7 Debian/Alpine Container Performance Comparison](https://www.ernestchiang.com/en/posts/2021/benchmark-nginx-php-fpm-between-buster-alpine/)
+    - e.g. Test Page: Default Homepage (higher is better)
+
+        ![](https://www.ernestchiang.com/img/2021/2021-04-17-benchmark-nginx-php-fpm-between-buster-alpine/chart-laravel-8-49-1-homepage-2021-0706_hu26fe3bec41e8874ae3b32a12f7791390_13081_600x0_resize_box_3.png)
 
 ---
 
@@ -29,9 +42,14 @@ Brought to you by Ernest Chiang (an [AWS Community Hero](https://aws.amazon.com/
 - **Registry**: [AWS ECR Public](https://gallery.ecr.aws/dwchiang/nginx-php-fpm), and [Docker Hub](https://hub.docker.com/r/dwchiang/nginx-php-fpm).
 - **Benchmark**: [Benchmark.md](https://github.com/dwchiang/nginx-php-fpm/blob/master/docs/Benchmark.md) and my [blog](https://www.ernestchiang.com/en/posts/2021/benchmark-nginx-php-fpm-between-buster-alpine/).
 - **Maintenance**: [Maintenance.md](https://github.com/dwchiang/nginx-php-fpm/blob/master/docs/Maintenance.md)
-- **Support this project:**
-    - Give a star ⭐ 
-    - [![Buy me a coffee](https://www.ernestchiang.com/img/logo/bmc_285x80.png)](https://www.buymeacoffee.com/ernestchiang)
+
+---
+
+- **How to Support this project:**
+    - ⭐ Give a star ⭐ 
+    - ✅ [Let us know you are using it](https://forms.gle/yvEeR2D1voc7sJbaA) :)
+    - ☕ [Buy me a coffee](https://www.buymeacoffee.com/ernestchiang)
+    - ![Buy me a coffee](https://www.ernestchiang.com/img/logo/bmc_285x80.png)
 
 ---
 
@@ -163,3 +181,9 @@ As with all Docker images, these likely also contain other software which may be
 Some additional license information which was able to be auto-detected might be found in [the `repo-info` repository's `nginx/` directory](https://github.com/docker-library/repo-info/tree/master/repos/nginx) and [the `repo-info` repository's `php/` directory](https://github.com/docker-library/repo-info/tree/master/repos/php).
 
 As for any pre-built image usage, it is the image user's responsibility to ensure that any use of this image complies with any relevant licenses for all software contained within.
+
+---
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=dwchiang/nginx-php-fpm&type=Date)](https://star-history.com/#dwchiang/nginx-php-fpm&Date)
