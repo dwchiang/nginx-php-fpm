@@ -1,4 +1,4 @@
-.PHONY: help version build buildongithubactions pushtodockerhub pushtoawsecr test down
+.PHONY: help version build buildongithubactions pushtodockerhub pushtoawsecr test down cleandocker
 
 VERSION_PHP        := $(VERSION_PHP)
 VERSION_PHP_MINOR  := $(shell cut -d '.' -f 1 <<< $(VERSION_PHP)).$(shell cut -d '.' -f 2 <<< $(VERSION_PHP))
@@ -35,6 +35,8 @@ help:
 	@ echo
 
 version:
+	@ echo '====================================================================='
+	@ echo '====================================================================='
 	@ echo '{'
 	@ echo '  "GIT_COMMIT_HASH":       "$(GIT_COMMIT_HASH)",'
 	@ echo '  "VERSION_PHP":       	   "$(VERSION_PHP)"'
@@ -48,9 +50,13 @@ version:
 	@ echo '  "VERSION_LARAVEL":       "$(VERSION_LARAVEL)"'
 	@ echo '  "NAME_PROJECT_LARAVEL":  "$(NAME_PROJECT_LARAVEL)"'
 	@ echo '}'
+	@ echo '====================================================================='
+	@ echo '====================================================================='
 
 build: version
+	@ echo '====================================================================='
 	@ echo '[] Building base image...'
+	@ echo '====================================================================='
 
 ifeq ($(IS_LATEST),true)
 	echo 'IS_LATEST=true'
@@ -69,7 +75,9 @@ endif
 
 	docker images
 
-release: version
+release: version cleandocker
+	@ echo '====================================================================='
+	@ echo '====================================================================='
 	@ echo '[] Building images and push to Docker Hub & AWS ECR Public...'
 
 	@ echo '[] Login AWS ECR Public...'
@@ -102,9 +110,14 @@ endif
 
 	docker images
 
+	@ echo '====================================================================='
+	@ echo '====================================================================='
+
 	sleep 15
 
-releaseDockerHub: version
+releaseDockerHub: version cleandocker
+	@ echo '====================================================================='
+	@ echo '====================================================================='
 	@ echo '[] Building images and push to Docker Hub ...'
 
 	@ echo '[] Login Docker Hub...'
@@ -133,6 +146,9 @@ endif
 	docker buildx rm buildnginxphpfpm
 
 	docker images
+
+	@ echo '====================================================================='
+	@ echo '====================================================================='
 
 	sleep 15
 
@@ -247,3 +263,8 @@ cleanEcrUntagged:
 	echo $(IMAGES_TO_DELETE)
 #aws ecr-public batch-delete-image --region us-east-1 --repository-name $(NAME_PROJECT) --image-ids "$(IMAGES_TO_DELETE)" || true
 	
+cleandocker:	
+	docker container prune --force
+	docker image prune --all --force
+	docker system prune --force
+	docker system df
