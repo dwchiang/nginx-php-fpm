@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2024-02-16
+
+- Added Nginx: `1.25.4`
+
+## 2024-02-11
+
+- Added Nginx: `1.25.3`
+
+## 2023-09-09
+
+- Added PHP: `8.3`
+
+## 2023-04-25
+
+- Added PHP: `7.2`
+- Added Nginx: `1.22.1`, `1.24.0`
+- Added OS CODE: `alpine3.17`
+- Modified Docker API call from v1 to v2.
+
+## 2023-06-23
+
+- Added Laravel: `9.1.10`, `8.6.12` (for testing)
+
 ## 2022-06-15
 
 - Added PHP: `8.2`

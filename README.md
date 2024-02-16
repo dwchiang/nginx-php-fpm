@@ -35,7 +35,7 @@ Latest Semver | ![Docker Image Version (latest semver)](https://img.shields.io/d
 - **Supported architectures**: `amd64`, `arm64`.
 - **Supported PHP versions**: `8.3`, `8.2`, `8.1`, `8.0`, `7.4`, `7.3`, `7.2`
 - **Supported OS versions**: Across `bookworm`, `bullseye`, `buster`, `alpine3.18`, `alpine3.17`, `alpine3.16`, `alpine3.15`, `alpine3.14`, `alpine3.13`. (Based on PHP official image tags and Nginx official image OS version.)
-- **Supported Nginx versions**: `1.25.2`, `1.24.0`, `1.22.1`, `1.21.6`, `1.21.1`, `1.20.2`, `1.20.1`
+- **Supported Nginx versions**: `1.25.4`, `1.25.3`, `1.25.2`, `1.24.0`, `1.22.1`, `1.21.6`, `1.21.1`, `1.20.2`, `1.20.1`
 - **Maintained by**: [Ernest Chiang](https://www.ernestchiang.com/), Irvine Chang
 - **Where to file issues**: [https://github.com/dwchiang/nginx-php-fpm/issues](https://github.com/dwchiang/nginx-php-fpm/issues)
 - **Source**: [https://github.com/dwchiang/nginx-php-fpm](https://github.com/dwchiang/nginx-php-fpm)
@@ -45,11 +45,19 @@ Latest Semver | ![Docker Image Version (latest semver)](https://img.shields.io/d
 
 ---
 
-- **How to Support this project:**
-    - ⭐ Give a star ⭐ 
-    - ✅ [Let us know you are using it](https://forms.gle/yvEeR2D1voc7sJbaA) :)
-    - ☕ [Buy me a coffee](https://www.buymeacoffee.com/ernestchiang)
-    - ![Buy me a coffee](https://www.ernestchiang.com/img/logo/bmc_285x80.png)
+# Why Support This Project?
+
+Our open-source project, "dwchiang/nginx-php-fpm," provides a Docker image essential for running modern PHP applications in cloud-native ecosystems. Crafted with ❤️ by Ernest Chiang, an AWS Community Hero, and Irvine Chang, this project makes deploying Laravel and other PHP apps across various environments and architectures simpler.
+
+Supporting us ensures continuous improvement, updates to the latest PHP and Nginx versions, and maintenance of this tool that many developers depend on for deploying PHP applications efficiently and securely on platforms like AWS Fargate and Amazon ECS/EKS. Your sponsorship will directly contribute to:
+
+- 🔄 Regular updates and compatibility checks
+- 🛠️ Ongoing maintenance and support
+- 📚 Extensive documentation and community engagement
+
+Whether by starring ⭐ our [GitHub repository](https://github.com/dwchiang/nginx-php-fpm) or [Docker Hub](https://hub.docker.com/r/dwchiang/nginx-php-fpm), [letting us know how you use it](https://forms.gle/yvEeR2D1voc7sJbaA), or offering financial support through "[Buy me a coffee](https://www.buymeacoffee.com/ernestchiang)," your support empowers us to keep building and maintaining this essential resource for developers worldwide.
+
+Join us in making PHP application deployment better and more accessible for everyone. Thank you for your support and trust in our project!
 
 ---
 
