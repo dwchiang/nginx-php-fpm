@@ -11,12 +11,15 @@
 
 ## PHP 8.3
 
-- [`8.3.2-fpm-bookworm-nginx-1.25.4`](https://github.com/dwchiang/nginx-php-fpm/blob/master/bookworm/Dockerfile-8.3.2-fpm-bookworm-nginx-1.25.4), `latest`
+- [`8.3.3-fpm-bookworm-nginx-1.25.4`](https://github.com/dwchiang/nginx-php-fpm/blob/master/bookworm/Dockerfile-8.3.3-fpm-bookworm-nginx-1.25.4), `latest`
+- [`8.3.2-fpm-bookworm-nginx-1.25.4`](https://github.com/dwchiang/nginx-php-fpm/blob/master/bookworm/Dockerfile-8.3.2-fpm-bookworm-nginx-1.25.4)
 - [`8.3.1-fpm-bookworm-nginx-1.25.4`](https://github.com/dwchiang/nginx-php-fpm/blob/master/bookworm/Dockerfile-8.3.1-fpm-bookworm-nginx-1.25.4)
 - [`8.3.0-fpm-bookworm-nginx-1.25.4`](https://github.com/dwchiang/nginx-php-fpm/blob/master/bookworm/Dockerfile-8.3.0-fpm-bookworm-nginx-1.25.4)
+- [`8.3.3-fpm-bullseye-nginx-1.24.0`](https://github.com/dwchiang/nginx-php-fpm/blob/master/bullseye/Dockerfile-8.3.3-fpm-bullseye-nginx-1.24.0)
 - [`8.3.2-fpm-bullseye-nginx-1.24.0`](https://github.com/dwchiang/nginx-php-fpm/blob/master/bullseye/Dockerfile-8.3.2-fpm-bullseye-nginx-1.24.0)
 - [`8.3.1-fpm-bullseye-nginx-1.24.0`](https://github.com/dwchiang/nginx-php-fpm/blob/master/bullseye/Dockerfile-8.3.1-fpm-bullseye-nginx-1.24.0)
 - [`8.3.0-fpm-bullseye-nginx-1.24.0`](https://github.com/dwchiang/nginx-php-fpm/blob/master/bullseye/Dockerfile-8.3.0-fpm-bullseye-nginx-1.24.0)
+- [`8.3.3-fpm-alpine3.18-nginx-1.25.4`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.18/Dockerfile-8.3.3-fpm-alpine3.18-nginx-1.25.4)
 - [`8.3.2-fpm-alpine3.18-nginx-1.25.4`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.18/Dockerfile-8.3.2-fpm-alpine3.18-nginx-1.25.4)
 - [`8.3.1-fpm-alpine3.18-nginx-1.25.4`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.18/Dockerfile-8.3.1-fpm-alpine3.18-nginx-1.25.4)
 - [`8.3.0-fpm-alpine3.18-nginx-1.25.4`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.18/Dockerfile-8.3.0-fpm-alpine3.18-nginx-1.25.4)
@@ -25,21 +28,21 @@
 
 ## PHP 8.2
 
+- [`8.2.16-fpm-bookworm-nginx-1.25.4`](https://github.com/dwchiang/nginx-php-fpm/blob/master/bookworm/Dockerfile-8.2.16-fpm-bookworm-nginx-1.25.4)
 - [`8.2.15-fpm-bookworm-nginx-1.25.4`](https://github.com/dwchiang/nginx-php-fpm/blob/master/bookworm/Dockerfile-8.2.15-fpm-bookworm-nginx-1.25.4)
 - [`8.2.14-fpm-bookworm-nginx-1.25.4`](https://github.com/dwchiang/nginx-php-fpm/blob/master/bookworm/Dockerfile-8.2.14-fpm-bookworm-nginx-1.25.4)
 - [`8.2.13-fpm-bookworm-nginx-1.25.4`](https://github.com/dwchiang/nginx-php-fpm/blob/master/bookworm/Dockerfile-8.2.13-fpm-bookworm-nginx-1.25.4)
 - [`8.2.12-fpm-bookworm-nginx-1.25.4`](https://github.com/dwchiang/nginx-php-fpm/blob/master/bookworm/Dockerfile-8.2.12-fpm-bookworm-nginx-1.25.4)
-- [`8.2.11-fpm-bookworm-nginx-1.25.4`](https://github.com/dwchiang/nginx-php-fpm/blob/master/bookworm/Dockerfile-8.2.11-fpm-bookworm-nginx-1.25.4)
+- [`8.2.16-fpm-bullseye-nginx-1.24.0`](https://github.com/dwchiang/nginx-php-fpm/blob/master/bullseye/Dockerfile-8.2.16-fpm-bullseye-nginx-1.24.0)
 - [`8.2.15-fpm-bullseye-nginx-1.24.0`](https://github.com/dwchiang/nginx-php-fpm/blob/master/bullseye/Dockerfile-8.2.15-fpm-bullseye-nginx-1.24.0)
 - [`8.2.14-fpm-bullseye-nginx-1.24.0`](https://github.com/dwchiang/nginx-php-fpm/blob/master/bullseye/Dockerfile-8.2.14-fpm-bullseye-nginx-1.24.0)
 - [`8.2.13-fpm-bullseye-nginx-1.24.0`](https://github.com/dwchiang/nginx-php-fpm/blob/master/bullseye/Dockerfile-8.2.13-fpm-bullseye-nginx-1.24.0)
 - [`8.2.12-fpm-bullseye-nginx-1.24.0`](https://github.com/dwchiang/nginx-php-fpm/blob/master/bullseye/Dockerfile-8.2.12-fpm-bullseye-nginx-1.24.0)
-- [`8.2.11-fpm-bullseye-nginx-1.24.0`](https://github.com/dwchiang/nginx-php-fpm/blob/master/bullseye/Dockerfile-8.2.11-fpm-bullseye-nginx-1.24.0)
+- [`8.2.16-fpm-alpine3.18-nginx-1.25.4`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.18/Dockerfile-8.2.16-fpm-alpine3.18-nginx-1.25.4)
 - [`8.2.15-fpm-alpine3.18-nginx-1.25.4`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.18/Dockerfile-8.2.15-fpm-alpine3.18-nginx-1.25.4)
 - [`8.2.14-fpm-alpine3.18-nginx-1.25.4`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.18/Dockerfile-8.2.14-fpm-alpine3.18-nginx-1.25.4)
 - [`8.2.13-fpm-alpine3.18-nginx-1.25.4`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.18/Dockerfile-8.2.13-fpm-alpine3.18-nginx-1.25.4)
 - [`8.2.12-fpm-alpine3.18-nginx-1.25.4`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.18/Dockerfile-8.2.12-fpm-alpine3.18-nginx-1.25.4)
-- [`8.2.11-fpm-alpine3.18-nginx-1.25.4`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.18/Dockerfile-8.2.11-fpm-alpine3.18-nginx-1.25.4)
 - [`8.2.13-fpm-alpine3.17-nginx-1.24.0`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.17/Dockerfile-8.2.13-fpm-alpine3.17-nginx-1.24.0)
 - [`8.2.12-fpm-alpine3.17-nginx-1.24.0`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.17/Dockerfile-8.2.12-fpm-alpine3.17-nginx-1.24.0)
 - [`8.2.11-fpm-alpine3.17-nginx-1.24.0`](https://github.com/dwchiang/nginx-php-fpm/blob/master/alpine3.17/Dockerfile-8.2.11-fpm-alpine3.17-nginx-1.24.0)
