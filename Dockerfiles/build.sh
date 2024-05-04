@@ -26,7 +26,7 @@ set -e
 
 
 export VERSION_OS=bookworm
-export VERSION_NGINX=1.25.4
-export VERSION_PHP=8.3.4
+export VERSION_NGINX=1.26.0
+export VERSION_PHP=8.3.6
 export IS_LATEST=true
 make $BUILD_CMD
