@@ -48,8 +48,8 @@ Latest Semver | ![Docker Image Version (latest semver)](https://img.shields.io/d
 
 - **Supported architectures**: Across `amd64` | `arm64`.
 - **Supported PHP versions**: Across `8.4` | `8.3` | `8.2` | `8.1` | `8.0` | `7.4` | `7.3` | `7.2`
-- **Supported OS versions**: Across `bookworm` | `bullseye` | `buster` | `alpine3.20` | `alpine3.19` | `alpine3.18` | `alpine3.17` | `alpine3.16` | `alpine3.15` | `alpine3.14` | `alpine3.13`. (Based on PHP official image tags and Nginx official image OS version.)
-- **Supported Nginx versions**: Across `1.27.1` | `1.27.0` | `1.26.2` | `1.26.0` | `1.25.4` | `1.25.3` | `1.25.2` | `1.24.0` | `1.22.1` | `1.21.6` | `1.21.1` | `1.20.2` | `1.20.1`
+- **Supported OS versions**: Across `bookworm` | `bullseye` | `buster` | `alpine3.21` | `alpine3.20` | `alpine3.19` | `alpine3.18` | `alpine3.17` | `alpine3.16` | `alpine3.15` | `alpine3.14` | `alpine3.13`. (Based on PHP official image tags and Nginx official image OS version.)
+- **Supported Nginx versions**: Across `1.27.4` | `1.27.1` | `1.27.0` | `1.26.2` | `1.26.0` | `1.25.4` | `1.25.3` | `1.25.2` | `1.24.0` | `1.22.1` | `1.21.6` | `1.21.1` | `1.20.2` | `1.20.1`
 - **Maintained by**: [Ernest Chiang](https://www.ernestchiang.com/), Irvine Chang
 - **Where to file issues**: [https://github.com/dwchiang/nginx-php-fpm/issues](https://github.com/dwchiang/nginx-php-fpm/issues)
 - **Source**: [https://github.com/dwchiang/nginx-php-fpm](https://github.com/dwchiang/nginx-php-fpm)

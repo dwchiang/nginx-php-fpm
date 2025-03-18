@@ -1,4 +1,4 @@
-#!/opt/homebrew/bin/zsh
+#!/usr/bin/env zsh
 # vim:sw=4:ts=4:et
 
 echo "-----------------------------------------------------------------------------------------------"
@@ -26,7 +26,7 @@ set -e
 
 
 export VERSION_OS=bookworm
-export VERSION_NGINX=1.27.1
-export VERSION_PHP=8.4.1
+export VERSION_NGINX=1.27.4
+export VERSION_PHP=8.4.5
 export IS_LATEST=true
 make $BUILD_CMD
