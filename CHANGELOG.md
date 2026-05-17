@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2026-05-17
+
+- Added Nginx: `1.31.0`
+- Added OS CODE: `trixie`, `alpine3.23`
+- Added PHP: `8.5`
+
+## 2025-03-18
+
+- Added Nginx: `1.27.4`
+- Added OS CODE: `alpine3.21`
+
 ## 2024-09-13
 
 - Added Nginx: `1.26.2`, `1.27.1`
