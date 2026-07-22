@@ -10,3 +10,22 @@
 - [x] 第 40 行：2024Q1 RPS 圖，改用新 hash URL，800w
 - [x] 第 43 行：2024Q1 Latency 圖，改用新 hash URL，800w（原 URL 的 basename 被 Hugo 舊版長檔名機制截斷，經由檔名中的 byte 數 90147 反查確認對應 `nginx-php-fpm-01-phpinfo-latency-02-dot-by-php-minor-color.png`，原 URL 並沒有貼錯）
 - [x] 全部五個新 URL 以 curl 驗證回傳 200
+
+## 自產 Star History 圖表取代 star-history.com
+
+背景：GitHub 已把 stargazers API 收進認證後才可存取（未帶 token 打 `/repos/{owner}/{repo}/stargazers` 回 401），star-history.com 的後端因此拿不到資料。實測 `api.star-history.com/svg` 回 500 timeout（`facebook/react` 亦然，屬服務層級故障），GitHub camo 代理該圖回 504，所有讀者都是破圖。改為自行產圖並存進 repo。
+
+設計決策：
+
+- 只用 Python 3 標準函式庫，不引入繪圖套件，因為本 repo 沒有任何建置工具鏈。
+- 主色 `#4088e0`、墨色 `#6e7781`，已用 dataviz 驗證器確認在 `#ffffff` 與 `#0d1117` 兩種底色下亮度帶、彩度、對比全部 PASS，單一檔案即可同時服務 GitHub 淺色／深色主題與 Docker Hub。
+- 圖表 x 軸結束於最後一顆星的日期而非「今天」，確保輸出只取決於資料，避免每次排程都產生無意義的 diff。
+- 不做 hover／tooltip 互動層：README 圖片經 camo 代理後以 `<img>` 呈現，無法執行腳本。
+
+- [x] 撰寫 `scripts/gen-star-history.py`，抓取全部 stargazers 的 `starred_at` 並分頁處理
+- [x] 輸出 `docs/star-history.json`（原始時間戳，供日後改繪圖用）
+- [x] 輸出 `docs/star-history.svg`（累積星數折線圖，含面積填色、年份刻度、末端直接標註數值）
+- [x] 本機實際執行腳本產圖，並轉成點陣圖親眼檢視版面有無重疊或溢出
+- [x] 新增 `.github/workflows/star-history.yml`，cron `0 3 1,15 * *` 加 `workflow_dispatch`，僅在內容變動時 commit
+- [x] README 的 Star History 段落改引用 raw URL，連結指向 GitHub stargazers 頁面
+- [ ] push 後以 `workflow_dispatch` 實際觸發一次，確認 Actions 預設的 `GITHUB_TOKEN` 有權讀取 stargazers；若無權則改用 PAT secret

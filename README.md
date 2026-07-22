@@ -208,4 +208,4 @@ As for any pre-built image usage, it is the image user's responsibility to ensur
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=dwchiang/nginx-php-fpm&type=Date)](https://star-history.com/#dwchiang/nginx-php-fpm&Date)
+[![Star History Chart](https://raw.githubusercontent.com/dwchiang/nginx-php-fpm/master/docs/star-history.svg)](https://github.com/dwchiang/nginx-php-fpm/stargazers)

@@ -1,0 +1,50 @@
+# Regenerates docs/star-history.svg from the GitHub stargazers API.
+#
+# The third-party star-history.com badge broke for every reader once GitHub
+# started requiring authentication on the stargazers endpoint, so the chart is
+# generated here with the repo's own token and committed to the repo.
+#
+# Note: GitHub disables scheduled workflows in repositories with no activity for
+# 60 days. This repo is actively maintained, but if the schedule ever goes quiet,
+# re-enable it from the Actions tab or trigger it manually below.
+
+name: Star history
+
+on:
+  schedule:
+    # 03:00 UTC on the 1st and the 15th, i.e. roughly every two weeks.
+    # Deliberately not "*/14": day-of-month step values restart each month,
+    # which makes the real interval drift.
+    - cron: "0 3 1,15 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: star-history
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Generate chart
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/gen-star-history.py --repo "${{ github.repository }}"
+
+      - name: Commit if the chart changed
+        run: |
+          if [ -z "$(git status --porcelain docs/star-history.svg docs/star-history.json)" ]; then
+            echo "Star history unchanged, nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/star-history.svg docs/star-history.json
+          git commit -m "Updated star history chart"
+          git push
