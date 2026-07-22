@@ -89,14 +89,20 @@ def _get_json(url: str, token: str):
             with urllib.request.urlopen(request, timeout=30) as response:
                 return json.loads(response.read().decode("utf-8"))
         except urllib.error.HTTPError as error:
-            # 403/429 are the secondary rate limit; everything else is fatal.
-            if error.code in (403, 429) and attempt < MAX_RETRIES:
+            body = error.read().decode("utf-8", "replace")
+            # A 403 is either a rate limit (retry) or a permissions problem
+            # (retrying just wastes the run). The default Actions GITHUB_TOKEN
+            # hits the permissions case on this endpoint, so tell them apart.
+            rate_limited = (
+                error.headers.get("Retry-After") is not None
+                or error.headers.get("X-RateLimit-Remaining") == "0"
+                or "rate limit" in body.lower())
+            if error.code in (403, 429) and rate_limited and attempt < MAX_RETRIES:
                 delay = int(error.headers.get("Retry-After") or 2 ** attempt)
                 print(f"rate limited, sleeping {delay}s", file=sys.stderr)
                 time.sleep(delay)
                 continue
-            body = error.read().decode("utf-8", "replace")[:200]
-            raise SystemExit(f"GitHub API {error.code} for {url}: {body}")
+            raise SystemExit(f"GitHub API {error.code} for {url}: {body[:300]}")
         except urllib.error.URLError as error:
             if attempt < MAX_RETRIES:
                 time.sleep(2 ** attempt)

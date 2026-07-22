@@ -28,4 +28,7 @@
 - [x] 本機實際執行腳本產圖，並轉成點陣圖親眼檢視版面有無重疊或溢出
 - [x] 新增 `.github/workflows/star-history.yml`，cron `0 3 1,15 * *` 加 `workflow_dispatch`，僅在內容變動時 commit
 - [x] README 的 Star History 段落改引用 raw URL，連結指向 GitHub stargazers 頁面
-- [ ] push 後以 `workflow_dispatch` 實際觸發一次，確認 Actions 預設的 `GITHUB_TOKEN` 有權讀取 stargazers；若無權則改用 PAT secret
+- [x] push 後以 `workflow_dispatch` 實際觸發一次：預設 `GITHUB_TOKEN` 回 403 `You do not have permission to view the stargazers of this repository`，確認無權
+- [x] workflow 改讀 `secrets.STAR_HISTORY_TOKEN`；腳本區分權限型 403 與速率限制型 403，前者不再無謂重試
+- [ ] 由 Ernest 建立 PAT 並設為 repo secret `STAR_HISTORY_TOKEN`
+- [ ] secret 設好後再觸發一次 workflow，確認成功產圖並 commit

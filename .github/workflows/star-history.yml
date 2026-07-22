@@ -30,11 +30,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Generate chart
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # The default GITHUB_TOKEN cannot read this endpoint: it answers
+          # 403 "You do not have permission to view the stargazers of this
+          # repository". STAR_HISTORY_TOKEN is a personal access token, either
+          # fine-grained with Metadata: Read-only, or classic with public_repo.
+          GITHUB_TOKEN: ${{ secrets.STAR_HISTORY_TOKEN }}
         run: python3 scripts/gen-star-history.py --repo "${{ github.repository }}"
 
       - name: Commit if the chart changed
