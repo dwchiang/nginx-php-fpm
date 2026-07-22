@@ -30,5 +30,7 @@
 - [x] README 的 Star History 段落改引用 raw URL，連結指向 GitHub stargazers 頁面
 - [x] push 後以 `workflow_dispatch` 實際觸發一次：預設 `GITHUB_TOKEN` 回 403 `You do not have permission to view the stargazers of this repository`，確認無權
 - [x] workflow 改讀 `secrets.STAR_HISTORY_TOKEN`；腳本區分權限型 403 與速率限制型 403，前者不再無謂重試
-- [ ] 由 Ernest 建立 PAT 並設為 repo secret `STAR_HISTORY_TOKEN`
-- [ ] secret 設好後再觸發一次 workflow，確認成功產圖並 commit
+- [x] 由 Ernest 建立 PAT 並設為 repo secret `STAR_HISTORY_TOKEN`
+- [x] secret 設好後再觸發一次 workflow：run 29883757092 成功，抓到 177 筆並產出與已 commit 版本完全相同的檔案，因此輸出 `Star history unchanged, nothing to commit`
+- [ ] 尚未實測的路徑：星數變動時的 commit + push 分支。要等下一次真的有人加星才會走到，屆時可到 Actions 頁面確認
+- [ ] PAT 到期日到期前需更換，否則排程會靜默失敗
