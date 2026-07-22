@@ -12,10 +12,15 @@ name: Star history
 
 on:
   schedule:
-    # 03:00 UTC on the 1st and the 15th, i.e. roughly every two weeks.
-    # Deliberately not "*/14": day-of-month step values restart each month,
-    # which makes the real interval drift.
-    - cron: "0 3 1,15 * *"
+    # 03:17 UTC on the 1st and the 15th, i.e. roughly every two weeks.
+    #
+    # Two deliberate choices:
+    #   - Not "*/14": day-of-month step values restart every month, so the
+    #     real interval would drift.
+    #   - Not the top of the hour: GitHub queues scheduled runs, and :00 is
+    #     the most congested minute, which means longer delays and, under
+    #     heavy load, dropped runs. An odd minute avoids the crowd.
+    - cron: "17 3 1,15 * *"
   workflow_dispatch:
 
 permissions:
