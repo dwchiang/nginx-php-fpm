@@ -17,9 +17,15 @@ Outputs (relative to the repo root):
     docs/star-history.json   every stargazer's starred_at timestamp
     docs/star-history.svg    cumulative star count over time
 
-The rendering is a pure function of the data: the x axis ends at the most recent
-star rather than at "today", so an unchanged star count produces a byte-identical
-SVG and the scheduled workflow has nothing to commit.
+The chart footer carries both the date of the most recent star and the date the
+file was generated. The generated date is a deliberate heartbeat: if the workflow
+stops running - GitHub disables scheduled workflows in repos that go 60 days
+without activity, and that failure mode raises no alert at all - the date on the
+published chart stops advancing and the problem becomes visible. The cost is that
+every scheduled run produces a commit even when nobody starred the repo.
+
+The x axis still ends at the most recent star rather than at "today", so the plot
+geometry itself remains a pure function of the data.
 """
 
 from __future__ import annotations
@@ -145,7 +151,7 @@ def escape(text: str) -> str:
                 .replace(">", "&gt;").replace('"', "&quot;"))
 
 
-def render_svg(repo: str, stamps: list[str]) -> str:
+def render_svg(repo: str, stamps: list[str], generated: datetime) -> str:
     if not stamps:
         raise SystemExit("no stargazers returned; refusing to render an empty chart")
 
@@ -220,8 +226,10 @@ def render_svg(repo: str, stamps: list[str]) -> str:
     add(f'<text x="{end_x + 12:.2f}" y="{end_y + 10:.2f}" fill="{INK}" '
         f'font-size="11" opacity="0.85">stars</text>')
 
+    # "Generated" is the heartbeat: if it stops advancing, the workflow stopped.
     add(f'<text x="{PAD_LEFT}" y="{HEIGHT - 12}" fill="{INK}" font-size="11" '
         f'opacity="0.75">Latest star {last:%Y-%m-%d} '
+        f'&#183; generated {generated:%Y-%m-%d} '
         f'&#183; source: GitHub stargazers API</text>')
     add('</svg>')
     return "\n".join(out) + "\n"
@@ -245,13 +253,17 @@ def main() -> int:
     stamps = fetch_starred_at(args.repo, token)
     print(f"fetched {len(stamps)} stargazers for {args.repo}", file=sys.stderr)
 
+    generated = datetime.now(timezone.utc)
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / "star-history.json").write_text(
-        json.dumps({"repo": args.repo, "total": len(stamps), "starred_at": stamps},
+        json.dumps({"repo": args.repo,
+                    "total": len(stamps),
+                    "generated_at": generated.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                    "starred_at": stamps},
                    indent=2) + "\n", encoding="utf-8")
     (out_dir / "star-history.svg").write_text(
-        render_svg(args.repo, stamps), encoding="utf-8")
+        render_svg(args.repo, stamps, generated), encoding="utf-8")
     print(f"wrote {out_dir}/star-history.json and {out_dir}/star-history.svg",
           file=sys.stderr)
     return 0

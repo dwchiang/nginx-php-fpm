@@ -54,7 +54,7 @@ There is no unit-test suite; "testing" means building a Part 2 Laravel/phpinfo i
 - `Testings/` — Part 2 reference Dockerfiles + docker-compose files (consumer-side examples).
 - `docs/Tags.md` — canonical published-tag list; `docs/Benchmark.md`; `docs/Maintenance.md` (deprecated).
 - `CHANGELOG.md` — date-keyed log of added PHP/nginx/OS versions.
-- `scripts/gen-star-history.py` — regenerates `docs/star-history.svg` and `docs/star-history.json` from the GitHub stargazers API. Standard library only; do not add a plotting dependency. The chart's x axis ends at the last star rather than "today" so identical data yields a byte-identical SVG.
+- `scripts/gen-star-history.py` — regenerates `docs/star-history.svg` and `docs/star-history.json` from the GitHub stargazers API. Standard library only; do not add a plotting dependency. The footer carries both the last-star date and the generation date; the latter is an intentional heartbeat, so every scheduled run commits even when the star count is unchanged. That is the only signal for a workflow that stops running altogether, which raises no alert of its own.
 - `.github/workflows/star-history.yml` — runs that script on the 1st and 15th of each month. It must use the `STAR_HISTORY_TOKEN` secret: the default Actions `GITHUB_TOKEN` is rejected by the stargazers endpoint with 403. If the chart silently stops updating, the token has most likely expired.
 - `backup/` and `*.log` are gitignored (build/cron logs accumulate in `Dockerfiles/`).
 
