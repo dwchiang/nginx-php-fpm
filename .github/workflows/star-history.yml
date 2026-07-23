@@ -25,6 +25,7 @@ on:
 
 permissions:
   contents: write
+  issues: write   # the failure step below opens/updates a tracking issue
 
 concurrency:
   group: star-history
@@ -57,3 +58,31 @@ jobs:
           git add docs/star-history.svg docs/star-history.json
           git commit -m "Updated star history chart"
           git push
+
+      # Two layers of failure signalling cover two different failure modes.
+      # This step handles "the run happened but failed" (e.g. an expired
+      # token). The generation date stamped on the chart handles the other
+      # mode - "the run never happened", which produces no run to fail and so
+      # cannot be caught here. GitHub's built-in email on failed workflows is
+      # the third, per-account layer, configured outside this repo.
+      #
+      # Deduplicated: a repeatedly failing schedule appends to one open issue
+      # instead of opening a new one every fortnight. Uses the default
+      # GITHUB_TOKEN (issues: write above), never the stargazers PAT.
+      - name: Open or update a failure issue
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          label="star-history-failure"
+          existing="$(gh issue list --repo "$GITHUB_REPOSITORY" \
+            --label "$label" --state open --limit 1 --json number --jq '.[0].number')"
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --repo "$GITHUB_REPOSITORY" \
+              --body "Star history workflow failed again on $(date -u +%Y-%m-%d). Run: $RUN_URL"
+          else
+            gh issue create --repo "$GITHUB_REPOSITORY" --label "$label" \
+              --title "Star history workflow is failing" \
+              --body "$(printf 'The scheduled star-history workflow failed.\n\nFailed run: %s\n\nLikely causes, most common first:\n- The STAR_HISTORY_TOKEN secret has expired (fine-grained tokens last at most 366 days).\n- GitHub disabled the schedule after 60 days of repo inactivity; re-enable it from the Actions tab.\n- The GitHub stargazers API returned an error.\n\nClose this issue once the workflow succeeds again; it will reopen a fresh one if it breaks later.' "$RUN_URL")"
+          fi

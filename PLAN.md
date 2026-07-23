@@ -34,3 +34,14 @@
 - [x] secret 設好後再觸發一次 workflow：run 29883757092 成功，抓到 177 筆並產出與已 commit 版本完全相同的檔案，因此輸出 `Star history unchanged, nothing to commit`
 - [ ] 尚未實測的路徑：星數變動時的 commit + push 分支。要等下一次真的有人加星才會走到，屆時可到 Actions 頁面確認
 - [ ] PAT 到期日到期前需更換，否則排程會靜默失敗
+
+## 失敗通知與心跳
+
+- [x] 圖表 footer 加上 generated 日期作為心跳，偵測「workflow 根本沒執行」這種無 run 可失敗、不會有任何告警的情況（代價：每次排程都會 commit）
+- [x] `json` 也加入 `generated_at` 欄位
+- [x] workflow 加 `if: failure()` 步驟，失敗時開／更新一張 `star-history-failure` 標籤的 issue，含去重（連續失敗補留言而非狂開新票）
+- [x] 補上 `issues: write` 權限；開 issue 用預設 `GITHUB_TOKEN`，不動用 stargazers PAT
+- [x] 建立 `star-history-failure` 標籤
+- [x] 本機 `bash -n` 驗證失敗步驟語法、唯讀驗證去重查詢字串
+- [ ] 失敗路徑的端對端實測需製造一次真實失敗（會產生一張真 issue），待 Ernest 決定是否要跑
+- [ ] 第二層 GitHub 帳號層級 email 通知：由 Ernest 於 https://github.com/settings/notifications 確認 Actions 失敗通知為開啟（帳號設定，非 repo，Claude 不觸碰）
