@@ -48,8 +48,8 @@ Latest Semver | ![Docker Image Version (latest semver)](https://img.shields.io/d
 
 - **Supported architectures**: Across `amd64` | `arm64`.
 - **Supported PHP versions**: Across `8.5` | `8.4` | `8.3` | `8.2` | `8.1` | `8.0` | `7.4` | `7.3` | `7.2`
-- **Supported OS versions**: Across `trixie` | `bookworm` | `bullseye` | `buster` | `alpine3.23` | `alpine3.21` | `alpine3.20` | `alpine3.19` | `alpine3.18` | `alpine3.17` | `alpine3.16` | `alpine3.15` | `alpine3.14` | `alpine3.13`. (Based on PHP official image tags and Nginx official image OS version.)
-- **Supported Nginx versions**: Across `1.31.0` | `1.27.4` | `1.27.1` | `1.27.0` | `1.26.2` | `1.26.0` | `1.25.4` | `1.25.3` | `1.25.2` | `1.24.0` | `1.22.1` | `1.21.6` | `1.21.1` | `1.20.2` | `1.20.1`
+- **Supported OS versions**: Across `trixie` | `bookworm` | `bullseye` | `buster` | `alpine3.24` | `alpine3.23` | `alpine3.21` | `alpine3.20` | `alpine3.19` | `alpine3.18` | `alpine3.17` | `alpine3.16` | `alpine3.15` | `alpine3.14` | `alpine3.13`. (Based on PHP official image tags and Nginx official image OS version.)
+- **Supported Nginx versions**: Across `1.31.7` | `1.31.0` | `1.27.4` | `1.27.1` | `1.27.0` | `1.26.2` | `1.26.0` | `1.25.4` | `1.25.3` | `1.25.2` | `1.24.0` | `1.22.1` | `1.21.6` | `1.21.1` | `1.20.2` | `1.20.1`
 - **Maintained by**: [Ernest Chiang](https://www.ernestchiang.com/), Irvine Chang
 - **Where to file issues**: [https://github.com/dwchiang/nginx-php-fpm/issues](https://github.com/dwchiang/nginx-php-fpm/issues)
 - **Source**: [https://github.com/dwchiang/nginx-php-fpm](https://github.com/dwchiang/nginx-php-fpm)
@@ -78,6 +78,7 @@ Join us in making PHP application deployment better and more accessible for ever
 # Supported Image Tags
 
 - **Full tag list** (included older tags): [https://github.com/dwchiang/nginx-php-fpm/blob/master/docs/Tags.md](https://github.com/dwchiang/nginx-php-fpm/blob/master/docs/Tags.md)
+- Starting from 2026-10-22, the project builds the last 3 PHP versions of the same combination of PHP, OS and Nginx at the build moment, because older patch versions carry more security risk.
 - Starting from 2023-09-08, the project will build the last 5 PHP version of the same combination of PHP, OS and Nginx at the build moment to reduce the storage spending on AWS ECR Public.
 - Starting from 2023-04-27, the project has decided to maintain the latest version of each PHP branch due to the increasing mixed results observed when combining different versions of PHP, OS, and Nginx.
 - Changed tag naming rule on 2021-07-25. More details please refer to this [docs](https://github.com/dwchiang/nginx-php-fpm/blob/master/docs/Tags.md).

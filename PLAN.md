@@ -45,3 +45,15 @@
 - [x] 本機 `bash -n` 驗證失敗步驟語法、唯讀驗證去重查詢字串
 - [ ] 失敗路徑的端對端實測需製造一次真實失敗（會產生一張真 issue），待 Ernest 決定是否要跑
 - [ ] 第二層 GitHub 帳號層級 email 通知：由 Ernest 於 https://github.com/settings/notifications 確認 Actions 失敗通知為開啟（帳號設定，非 repo，Claude 不觸碰）
+
+## 2026-10-22：PHP 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35、Nginx 1.31.7、OS CODE alpine3.24
+
+背景：上游 toolkit（`../kit-nginx-php-fpm`）已 build / test / release 26 個 tag（每個 minor 保留 3 個 patch，trixie、alpine3.24，8.1 只有 trixie），兩個 registry 皆驗證 amd64、arm64，`latest` = `8.5.12-fpm-trixie-nginx-1.31.7`。
+
+- [x] 在 toolkit 執行 `make release` 同步：新增 `Dockerfiles/alpine3.24/`、trixie 14 個 Dockerfile、`docs/Tags.md`、`Dockerfiles/build.sh`、`Testings/Dockerfile-phpinfo-{trixie,alpine3.23,alpine3.24}`
+- [x] `CHANGELOG.md`：2026-10-22 Added Nginx `1.31.7`、OS CODE `alpine3.24`
+- [x] `README.md` Quick Reference：OS 加 `alpine3.24`、Nginx 加 `1.31.7`；Supported Image Tags 補「2026-10-22 起保留最近 3 個 patch」
+- [x] `CLAUDE.md` Repo layout 的 OS codes 加 `alpine3.24`
+- [x] 檢查 `git status`，確認沒有既有的 Dockerfile 被刪除或修改
+- [x] `docs/Tags.md` 連結修正（toolkit 的 `genReleaseScripts.py` 與 `tags-footer.md`）：26 個連結改為 `blob/master/Dockerfiles/<os>/...`，56 個舊命名連結改為指向 commit `d800a15`；`CHANGELOG.md` 補一行
+- [x] commit 到 master 並 push（Ernest 2026-10-22 確認）

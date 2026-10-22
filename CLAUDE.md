@@ -48,7 +48,7 @@ There is no unit-test suite; "testing" means building a Part 2 Laravel/phpinfo i
 
 ## Repo layout
 
-- `Dockerfiles/{OS}/` — generated base Dockerfiles. OS codes: `trixie`, `bookworm`, `bullseye`, `buster`, `alpine3.13`–`alpine3.23`.
+- `Dockerfiles/{OS}/` — generated base Dockerfiles. OS codes: `trixie`, `bookworm`, `bullseye`, `buster`, `alpine3.13`–`alpine3.24`.
 - `Dockerfiles/{OS}/conf/` — `nginx.conf`, `nginx-default.conf`, `supervisord.conf` baked into images for that OS.
 - `Dockerfiles/{OS}/scripts/` — nginx `docker-entrypoint.sh` and `/docker-entrypoint.d/*` helpers (e.g. `30-tune-worker-processes.sh`).
 - `Testings/` — Part 2 reference Dockerfiles + docker-compose files (consumer-side examples).

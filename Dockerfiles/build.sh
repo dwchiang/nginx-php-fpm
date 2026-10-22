@@ -28,7 +28,7 @@ set -e
 
 
 export VERSION_OS=trixie
-export VERSION_NGINX=1.31.0
-export VERSION_PHP=8.5.6
+export VERSION_NGINX=1.31.7
+export VERSION_PHP=8.5.12
 export IS_LATEST=true
 make $BUILD_CMD

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2026-10-22
+
+- Added Nginx: `1.31.7`
+- Added OS CODE: `alpine3.24`
+- Added PHP: `8.5.12`, `8.4.27`, `8.3.36`, `8.2.35` (each PHP minor now keeps the latest 3 patch versions)
+- Fixed Dockerfile links in `docs/Tags.md` (they pointed to paths without `Dockerfiles/` and returned 404; tags with the previous naming rule now link to commit `d800a15`, the last commit that has those files)
+
 ## 2026-05-17
 
 - Added Nginx: `1.31.0`
